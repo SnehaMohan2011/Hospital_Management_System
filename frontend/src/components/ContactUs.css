@@ -1,0 +1,120 @@
+/* Container Styling */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    background: #f4f7fc;
+    font-family: Arial, sans-serif; /* Added font family for consistency */
+}
+
+/* Contact Info Section */
+.contact-info {
+    text-align: center;
+    max-width: 700px; /* Increased max-width for larger content display */
+}
+
+.contact-info h2 {
+    font-size: 4rem; /* Increased font size for header */
+    color: #1d1e1f;
+    margin-bottom: 20px;
+}
+
+.contact-info-para{
+    font-size: 2rem;
+    text-align: center; 
+    color: #000000;
+}
+
+/* Contact Details Styling */
+.contact-details p{
+    font-size:25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    font-size: 1.3rem; /* Increased font size for better readability */
+    color: #34495e;
+}
+
+.contact-item .icon {
+    font-size: 2.5rem; /* Increased icon size */
+    color: #213a92;
+    margin-right: 15px; /* Increased space between icon and text */
+}
+
+/* Social Media Icons Styling */
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    font-size: 2.5rem; /* Larger icons */
+    margin: 0 15px; /* Increased margin for spacing */
+    color: #213a92;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #336393;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+    max-width: 800px;
+    height: 530px;
+    text-align: center;
+    margin-top: 50px; /* Increased margin for spacing */
+}
+
+.contact-form h2 {
+    font-size: 2.5rem; /* Increased font size for form header */
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 680px;
+    padding: 15px; /* Increased padding for input fields */
+    margin-bottom: 20px; /* Increased margin for spacing */
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 1.6rem; /* Larger font size for inputs */
+}
+
+.contact-form textarea {
+    height: 150px; /* Increased height for text area */
+    resize: none;
+}
+
+/* Submit Button Styling */
+.submit-button {
+    background: #3498db;
+    color: white;
+    font-size: 2rem; /* Larger button text */
+    padding: 12px 25px; /* Larger padding */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-button:hover {
+    background: #2980b9;
+}
+
+/* Google Map Section Styling */
+.map-container {
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 50px; /* Increased margin for spacing */
+    border-radius: 12px;
+    overflow: hidden;
+}
