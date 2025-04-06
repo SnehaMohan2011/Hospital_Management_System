@@ -4,12 +4,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const Appointment = require("./models/AppointmentModel");
-const adminRoutes = require("./routes/adminRoutes"); // Will contain simple login logic
+const adminRoutes = require("./routes/adminRoutes");
+const appointmentRoutes = require("./routes/AppointmentRoutes"); // Will contain simple login logic
 
 const app = express();
 
 // Middleware
 app.use(cors({ origin: ["http://localhost:5173","http://localhost:3000"], credentials: true }));
+
+
 app.use(express.json());
 
 // ENV Variables
@@ -108,6 +111,8 @@ Sneharika Hospital`,
 
 // Admin Routes (Simple login/dashboard)
 app.use("/admin", adminRoutes);
+
+app.use("/appointments", appointmentRoutes);
 
 // Start Server
 const SERVER_PORT = PORT || 5001;
