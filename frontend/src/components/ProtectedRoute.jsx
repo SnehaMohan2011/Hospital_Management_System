@@ -14,7 +14,7 @@ const ProtectedRoute = () => {
                     return;
                 }
                 const response = await axios.get("http://localhost:5001/admin/dashboard", {
-                    headers: { Authorization: token }
+                    headers: { Authorization: `Bearer ${token}` }
                 });
 
                 if (response.status === 200) {

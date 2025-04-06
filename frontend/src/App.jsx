@@ -8,7 +8,7 @@ import Bookingpage from "./booking/bookingpage"; // Fixed case
 import Doctorpage from "./Doctors/doctors"; // Fixed case
 import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
+
 
 
 
@@ -24,10 +24,8 @@ function App() {
         <Route path="/booking" element={<Bookingpage />} /> {/* Fixed case */}
         <Route path="/doctors" element={<Doctorpage />} /> {/* Fixed case */}
         <Route path="/admin/login" element={<AdminLogin />} />
-
-        <Route element={<ProtectedRoute />}>
-                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                </Route>
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                
 
         {/* ✅ 404 Not Found Page */}
         <Route path="*" element={<h2>Page Not Found</h2>} />

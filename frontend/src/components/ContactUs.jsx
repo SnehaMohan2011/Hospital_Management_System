@@ -24,13 +24,14 @@ const ContactUs = () => {
                             {/* Header Section */}
                             <header className="header">
                                 <div className="logo-container">
-                                    <img src={LogoImage} alt="Sri Ramakrishna Hospital Logo" className="logo" />                     <h1>Sneharika Hospital</h1>
+                                    <img src={LogoImage} alt="Sri Ramakrishna Hospital Logo" className="logo" />  
+                                    <h1>Sneharika Hospital</h1>
                                     <p>"Expertise You Can Trust"</p>
                                 </div>
                 
                                 <div className="contact-info">
-                                    <p> +91 422 350 0000 | +91 422 450 0000 | +91 7970 108 108</p>
-                                    <p>  No. 395, Myleripalayam, Otthakkalmandapam, Coimbatore - 641032, Tamil Nadu, India.</p>
+                                <p> +91 422 350 0000 | +91 422 450 0000 </p><p>+91 7970 108 108</p>                                    
+                                <p>  No. 395, Myleripalayam, Otthakkalmandapam, Coimbatore - 641032, Tamil Nadu, India.</p>
                                 </div>
                             </header>
                 

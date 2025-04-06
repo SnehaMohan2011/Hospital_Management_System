@@ -76,8 +76,8 @@ const Bookingpage = () => {
                 </div>
 
                 <div className="contact-info">
-                    <p>+91 422 350 0000 | +91 422 450 0000 | +91 7970 108 108</p>
-                    <p>No. 395, Myleripalayam, Otthakkalmandapam, Coimbatore - 641032, Tamil Nadu, India.</p>
+                <p> +91 422 350 0000 | +91 422 450 0000 </p><p>+91 7970 108 108</p>                   
+                <p>No. 395, Myleripalayam, Otthakkalmandapam, Coimbatore - 641032, Tamil Nadu, India.</p>
                 </div>
             </header>
 

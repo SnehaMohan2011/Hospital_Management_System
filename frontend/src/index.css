@@ -40,7 +40,7 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   .logo {
-    width: 150px; 
+    width: 200px; 
     height: auto; 
 }
 
@@ -48,14 +48,14 @@ body{
   .logo-container h1 {
     color: #5c2d91;
     margin: 0;
-    font-size:50px;
+    font-size:55px;
     transition: transform 0.3s ease;
   }
   .logo-container p {
     color: #000000;
     margin: 0;
     margin-left: 30px;
-    font-size:25px;
+    font-size:30px;
   }
   
   .logo-container h1:hover {
@@ -63,12 +63,13 @@ body{
   }
   
  
-.contact-info p {
-  font-size: 2rem;
-  text-align: center; /* Increased font size for paragraph */
-  color: #000000;
-  margin: 15px 0;
-}
+  .contact-info p {
+    font-size: 2rem; 
+    color: #000000;
+     /* Prevents line breaks */
+    text-align: center;    /* Centers the text if needed */
+  }
+  
 
   .hospital-text h1{
     font-size: 40px;
