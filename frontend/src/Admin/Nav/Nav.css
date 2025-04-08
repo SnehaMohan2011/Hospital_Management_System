@@ -1,0 +1,90 @@
+/* AppointmentsView.css */
+
+.appointments-container {
+    padding: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .heading {
+    margin-bottom: 30px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .filter-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    padding: 18px 22px;
+    background-color: #e0e0e0;
+    color: #2d2c2c;
+    border: none;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+  
+  .filter-btn.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .appointments-table {
+    width: 2200px;
+    min-width: 1000px;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-size: 26px;
+  }
+  
+  .appointments-table thead tr {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .appointments-table th,
+  .appointments-table td{
+    white-space: nowrap; 
+    vertical-align: middle;
+    padding: 20px 24px;
+    text-align: left;
+  }
+  
+  .appointments-table tbody tr {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+    height: 60px;
+  }
+  
+  .appointments-table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .no-data {
+    text-align: center;
+    padding: 30px;
+    color: #393737;
+    font-size: 30px;
+  }
+  

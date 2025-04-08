@@ -20,7 +20,7 @@ const Bookingpage = () => {
     });
 
     const doctorsByDepartment = {
-        Cardiology: ["Dr. John Doe"],
+        Cardiology: ["Dr. John"],
         Neurology: ["Dr. Meera Shah"],
         Pediatrics: ["Dr. Neha Verma"],
         Dermatology: ["Dr. Prakash Menon"],
