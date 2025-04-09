@@ -4,8 +4,8 @@ import FrontPage from "./components/frontpage";
 import AboutUs from "./components/AboutUs";
 import Facilities from "./components/Facilities";
 import ContactUs from "./components/ContactUs";
-import Bookingpage from "./booking/bookingpage"; // Fixed case
-import Doctorpage from "./Doctors/doctors"; // Fixed case
+import Bookingpage from "./booking/bookingpage"; 
+import Doctorpage from "./Doctors/doctors"; 
 import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
 

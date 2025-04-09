@@ -22,7 +22,7 @@ const DrVikramSolanki = () => {
         <div className="doctor-left">
           <img src={doctor12} alt="Dr. Vikram Solanki" className="doctor-image" />
           <h3>Dr. VIKRAM SOLANKI</h3>
-          <p>ORTHOPEDIC SURGEON</p>
+          <p>PEDIATRICIAN</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
           </button>
@@ -34,7 +34,7 @@ const DrVikramSolanki = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MBBS, MS (Orthopedics)</td>
+                <td>MBBS, MD (Pediatrics)</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>

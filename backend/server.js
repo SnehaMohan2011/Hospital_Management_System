@@ -3,19 +3,23 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+
 const Appointment = require("./models/AppointmentModel");
+const Booking = require('./models/Booking');
+
 const adminRoutes = require("./routes/adminRoutes");
-const appointmentRoutes = require("./routes/AppointmentRoutes"); // Will contain simple login logic
+const appointmentRoutes = require("./routes/AppointmentRoutes");
+
+const bookingRoutes = require("./routes/BookingRoutes");
+const doctorRoutes = require("./routes/doctorRoutes");
 
 const app = express();
 
-// Middleware
-app.use(cors({ origin: ["http://localhost:5173","http://localhost:3000"], credentials: true }));
-
-
+// ✅ Middleware
+app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3000"], credentials: true }));
 app.use(express.json());
 
-// ENV Variables
+// ✅ Load ENV Variables
 const {
   MONGO_URI,
   SMTP_HOST,
@@ -25,13 +29,12 @@ const {
   PORT,
 } = process.env;
 
-// Check essential ENV variables
 if (!MONGO_URI || !SMTP_HOST || !SMTP_USER || !SMTP_PASS || !RECEIVER_EMAIL) {
   console.error("❌ Missing environment variables. Check your .env file!");
   process.exit(1);
 }
 
-// MongoDB Connection
+// ✅ MongoDB Connection
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -42,7 +45,7 @@ mongoose.connect(MONGO_URI, {
   process.exit(1);
 });
 
-// Nodemailer Transport
+// ✅ Nodemailer Transport Setup
 const transporter = nodemailer.createTransport({
   host: SMTP_HOST,
   port: 587,
@@ -51,12 +54,9 @@ const transporter = nodemailer.createTransport({
     user: SMTP_USER,
     pass: SMTP_PASS,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
+  tls: { rejectUnauthorized: false },
 });
 
-// Verify SMTP
 transporter.verify((error) => {
   if (error) {
     console.error("❌ SMTP Error:", error);
@@ -65,7 +65,7 @@ transporter.verify((error) => {
   }
 });
 
-// Appointment Booking Email API
+// ✅ Appointment Booking Email API
 app.post("/send-email", async (req, res) => {
   const { name, email, phone, gender, age, department, doctor, date, time } = req.body;
 
@@ -109,12 +109,13 @@ Sneharika Hospital`,
   }
 });
 
-// Admin Routes (Simple login/dashboard)
-app.use("/admin", adminRoutes);
+// ✅ Routes
+app.use("/admin", adminRoutes);               // Admin login & dashboard
+app.use("/appointments", appointmentRoutes);  // Appointment operations
+app.use("/bookings", bookingRoutes);          // Booking logic
+app.use("/doctors", doctorRoutes);            // Doctor list, availability, etc.
 
-app.use("/appointments", appointmentRoutes);
-
-// Start Server
+// ✅ Start Server
 const SERVER_PORT = PORT || 5001;
 app.listen(SERVER_PORT, () => {
   console.log(`🚀 Server running on port ${SERVER_PORT}`);
