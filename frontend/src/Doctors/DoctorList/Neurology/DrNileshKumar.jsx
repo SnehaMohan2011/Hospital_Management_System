@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor2 from "../../../assets/doc3.jpeg"; // Make sure this image fits Dr. Nilesh Kumar's profile
 
-const DrJohn = () => {
+const DrNileshKumar = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. NILESH KUMAR</span>
         </p>
       </div>
 
@@ -20,9 +20,9 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
-          <p>CARDIOLOGIST</p>
+          <img src={doctor2} alt="Dr. Nilesh Kumar" className="doctor-image" />
+          <h3>Dr. NILESH KUMAR</h3>
+          <p>SENIOR NEUROLOGIST</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
           </button>
@@ -34,25 +34,27 @@ const DrJohn = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MD (Cardiology)</td>
+                <td>MS, MD (Neurology)</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>13 Years</td>
+              </tr>
+              <tr>
+                <td className="label">Designation</td>
+                <td>Senior Neurologist, Neurology Department</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>MON – SAT (02:00 PM – 5:00 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Nilesh Kumar is an accomplished neurologist with over 13 years of experience. He obtained his MS and MD in Neurology from <strong>Sri Ramachandra Institute of Medical Sciences, Chennai</strong>.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    Renowned for his clinical expertise and dedication to patient care, he currently serves as a Senior Neurologist at Sneharika Hospital. Dr. Kumar is committed to offering personalized treatment plans and stays updated with the latest advancements in neurological sciences.
                   </p>
                 </td>
               </tr>
@@ -64,4 +66,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrNileshKumar;

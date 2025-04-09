@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor20 from "../../../assets/doc24.jpeg"; // Replace with an appropriate image for Dr. Arjun Kapoor
 
-const DrJohn = () => {
+const DrArjunKapoor = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. ARJUN KAPOOR</span>
         </p>
       </div>
 
@@ -20,9 +20,9 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
-          <p>CARDIOLOGIST</p>
+          <img src={doctor20} alt="Dr. Arjun Kapoor" className="doctor-image" />
+          <h3>Dr. ARJUN KAPOOR</h3>
+          <p>GENERAL HEALTH</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
           </button>
@@ -34,25 +34,23 @@ const DrJohn = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MD (Cardiology)</td>
+                <td>MBBS, MD (Internal Medicine)</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>11 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>MON – SAT (9:30 AM – 12:30 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Arjun Kapoor is a compassionate and skilled physician specializing in general health and internal medicine. He completed his MBBS from <strong>SRM Medical College, Chennai</strong> and his MD in Internal Medicine from <strong>JSS Medical College, Mysuru</strong>.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    With over a decade of experience, Dr. Kapoor excels in managing chronic illnesses, lifestyle diseases, and general wellness. His patient-first approach, accurate diagnostics, and preventive care advice have earned him immense respect in the community. Currently, he is a Senior General Physician at Sneharika Hospital.
                   </p>
                 </td>
               </tr>
@@ -64,4 +62,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrArjunKapoor;

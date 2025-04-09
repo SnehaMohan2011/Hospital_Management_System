@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor10 from "../../../assets/doc6.jpg"; // Replace with an appropriate image for Dr. Ramesh Iyer
 
-const DrJohn = () => {
+const DrRameshIyer = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. RAMESH IYER</span>
         </p>
       </div>
 
@@ -20,9 +20,9 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
-          <p>CARDIOLOGIST</p>
+          <img src={doctor10} alt="Dr. Ramesh Iyer" className="doctor-image" />
+          <h3>Dr. RAMESH IYER</h3>
+          <p>PEDIATRICIAN</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
           </button>
@@ -34,25 +34,23 @@ const DrJohn = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MD (Cardiology)</td>
+                <td>MBBS, MD (Pediatrics)</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>20 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>MON – SAT (09:30 AM – 12:30 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Ramesh Iyer is a highly experienced pediatrician with two decades of expertise in child health care. He completed his MBBS from Madras Medical College and pursued his MD in Pediatrics from Grant Medical College, Mumbai.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    He specializes in the diagnosis and treatment of childhood illnesses, vaccinations, growth monitoring, and nutritional counseling. Known for his warm approach and deep understanding of children's health, Dr. Iyer is currently serving as a Senior Pediatric Consultant at Sneharika Hospital.
                   </p>
                 </td>
               </tr>
@@ -64,4 +62,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrRameshIyer;

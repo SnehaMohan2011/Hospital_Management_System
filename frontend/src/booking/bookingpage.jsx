@@ -20,10 +20,10 @@ const Bookingpage = () => {
     });
 
     const doctorsByDepartment = {
-        Cardiology: ["Dr. John"],
-        Neurology: ["Dr. Meera Shah"],
-        Pediatrics: ["Dr. Neha Verma"],
-        Dermatology: ["Dr. Prakash Menon"],
+        Cardiology: ["Dr. John","Dr.Asha Reddy","Karan Bhatia","Dr.Priya Nair"],
+        Neurology: ["Dr. Meera Shah","Dr.Arvind Rao","Dr.Nilesh Kumar","Tanya Joseph"],
+        Pediatrics: ["Dr. Neha Verma","Dr.Kavya Sinha","Dr.Ramesh Iyer","Dr.Vikram Solanki"],
+        Dermatology: ["Dr. Prakash Menon","Dr.Anjali Suresh","Dr.Reema Das","Dr.Vinod Krishnan"],
         Emergency: ["Dr. Ramesh Gupta", "Dr. Sneha Mohan", "Dr. Sameer Roy", "Dr. Amrita Balan"],
     };
 
@@ -136,8 +136,9 @@ const Bookingpage = () => {
                                     <option value="" disabled>No doctors available</option>
                                 )}
                             </select>
-
+                           
                             <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+
                             <input type="time" name="time" value={formData.time} onChange={handleChange} required />
                         </div>
 

@@ -3,6 +3,7 @@
     text-align: center;
     padding: 5px 2px;
     background-color: #f9f9f9;
+   
   }
   
   .department {
@@ -62,7 +63,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    height: 700px;
+    height: 750px;
   }
   
   .doctor-card:hover {
@@ -72,14 +73,16 @@
   
   /* Doctor Image */
   .doctor-card img {
-    margin-top: 20px;
+    margin-top: 0; /* remove top margin */
     width: 100%;
-    height: 450px; /* Increased from 350px to 450px */
+    height: 500px;
     object-fit: cover;
+    display: block; /* remove extra spacing */
   }
   
+  
   .doctor-card p{
-    margin-top: 10px;
+    margin-top: 20px;
   }
   
   /* Doctor Info */

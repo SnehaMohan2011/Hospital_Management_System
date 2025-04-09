@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor13 from "../../../assets/doc11.jpeg"; // Update with the correct image path for Dr. Prakash Menon
 
-const DrJohn = () => {
+const DrPrakashMenon = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. PRAKASH MENON</span>
         </p>
       </div>
 
@@ -20,9 +20,9 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
-          <p>CARDIOLOGIST</p>
+          <img src={doctor13} alt="Dr. Prakash Menon" className="doctor-image" />
+          <h3>Dr. PRAKASH MENON</h3>
+          <p>DERMATOLOGIST</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
           </button>
@@ -34,25 +34,23 @@ const DrJohn = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MD (Cardiology)</td>
+                <td>MD (Dermatology), Fellowship in Clinical Cosmetology</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>7 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>TUE – SAT (11:00 AM – 5:00 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Prakash Menon completed his medical education at <strong>Grant Medical College, Mumbai</strong>. He has extensive experience in dermatological procedures and clinical cosmetology.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    Passionate about skincare and wellness, he currently works as a Consultant Dermatologist at Sneharika Hospital, offering expert diagnosis and tailored treatment plans for a wide range of skin concerns.
                   </p>
                 </td>
               </tr>
@@ -64,4 +62,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrPrakashMenon;

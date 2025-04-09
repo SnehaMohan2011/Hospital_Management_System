@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor17 from "../../../assets/doc14.jpg"; // Replace with an appropriate image for Dr. Sanjana Rao
 
-const DrJohn = () => {
+const DrSanjanaRao = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. SANJANA RAO</span>
         </p>
       </div>
 
@@ -20,9 +20,9 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
-          <p>CARDIOLOGIST</p>
+          <img src={doctor17} alt="Dr. Sanjana Rao" className="doctor-image" />
+          <h3>Dr. SANJANA RAO</h3>
+          <p>GENERAL HEALTH</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
           </button>
@@ -34,25 +34,23 @@ const DrJohn = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MD (Cardiology)</td>
+                <td>MBBS, MD (Internal Medicine)</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>6 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>MON – SAT (08:30 AM – 12:00 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Sanjana Rao completed her MBBS from <strong>St. John's Medical College, Bengaluru</strong>, and went on to earn her MD in Internal Medicine from <strong>JIPMER, Puducherry</strong>. She has built a reputation for being approachable and thorough in her consultations.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    With 6 years of hands-on experience in general health and internal medicine, Dr. Rao specializes in diagnosing common illnesses, managing chronic diseases, and promoting preventive healthcare. Her ability to listen carefully and explain conditions in an easy-to-understand manner makes her highly appreciated by her patients.
                   </p>
                 </td>
               </tr>
@@ -64,4 +62,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrSanjanaRao;

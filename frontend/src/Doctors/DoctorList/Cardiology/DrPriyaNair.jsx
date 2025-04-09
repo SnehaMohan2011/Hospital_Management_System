@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor4 from "../../../assets/doc2.jpeg"; // Replace with actual image for Dr. Priya Nair
 
-const DrJohn = () => {
+const DrPriyaNair = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. PRIYA NAIR</span>
         </p>
       </div>
 
@@ -20,8 +20,8 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
+          <img src={doctor4} alt="Dr. Priya Nair" className="doctor-image" />
+          <h3>Dr. PRIYA NAIR</h3>
           <p>CARDIOLOGIST</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
@@ -38,21 +38,21 @@ const DrJohn = () => {
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>6 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>MON – SAT (01:00 PM – 5:00 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Priya Nair completed her undergraduate studies from Lady Hardinge Medical College (LHMC), New Delhi.
+                    She has always had a deep interest in cardiology and pursued her specialization with great dedication.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    She currently serves in the Department of Cardiology at Sneharika Hospital, where she’s appreciated for her
+                    compassionate patient care and clinical excellence.
                   </p>
                 </td>
               </tr>
@@ -64,4 +64,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrPriyaNair;

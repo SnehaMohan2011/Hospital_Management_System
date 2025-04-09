@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor2 from "../../../assets/doc16.jpeg"; // Update with the correct image path for Dr. Asha Reddy
 
-const DrJohn = () => {
+const DrAshaReddy = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. ASHA REDDY</span>
         </p>
       </div>
 
@@ -20,8 +20,8 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
+          <img src={doctor2} alt="Dr. Asha Reddy" className="doctor-image" />
+          <h3>Dr. ASHA REDDY</h3>
           <p>CARDIOLOGIST</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
@@ -38,21 +38,21 @@ const DrJohn = () => {
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>5 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>MON – SAT (03:00 PM – 7:00 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Asha Reddy graduated from Coimbatore Medical College, Coimbatore, and has a strong passion for
+                    providing patient-centered cardiac care.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    Currently, she is working as an Assistant in the Department of Cardiology at Sneharika Hospital,
+                    contributing her expertise to the team and patient welfare.
                   </p>
                 </td>
               </tr>
@@ -64,4 +64,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrAshaReddy;

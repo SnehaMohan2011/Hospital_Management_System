@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor3 from "../../../assets/doc17.jpeg"; // Replace with the correct path to Dr. Karan Bhatia's image
 
-const DrJohn = () => {
+const DrKaranBhatia = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. KARAN BHATIA</span>
         </p>
       </div>
 
@@ -20,8 +20,8 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
+          <img src={doctor3} alt="Dr. Karan Bhatia" className="doctor-image" />
+          <h3>Dr. KARAN BHATIA</h3>
           <p>CARDIOLOGIST</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
@@ -34,25 +34,25 @@ const DrJohn = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MD (Cardiology)</td>
+                <td>MD (Cardiology), Fellowship in Interventional Cardiology</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>10 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>MON – SAT (09:00 AM – 1:00 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Karan Bhatia completed his undergraduate studies at Vardhman Mahavir Medical College (VMMC), New Delhi.
+                    He later pursued advanced training in interventional cardiology to deepen his expertise in cardiac procedures.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    Currently, he is a senior consultant in the Department of Cardiology at Sneharika Hospital,
+                    where he is well-regarded for his diagnostic accuracy and patient-first approach.
                   </p>
                 </td>
               </tr>
@@ -64,4 +64,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrKaranBhatia;

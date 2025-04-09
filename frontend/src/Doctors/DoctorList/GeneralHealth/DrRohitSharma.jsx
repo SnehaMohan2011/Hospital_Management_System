@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor1 from "../../../assets/doc12.jpeg";
+import doctor18 from "../../../assets/doc18.jpeg"; // Replace with an appropriate image for Dr. Rohit Sharma
 
-const DrJohn = () => {
+const DrRohitSharma = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const DrJohn = () => {
       <div className="doctor-header">
         <h2>Doctor</h2>
         <p>
-          <span className="highlight">Dr. JOHN</span>
+          <span className="highlight">Dr. ROHIT SHARMA</span>
         </p>
       </div>
 
@@ -20,9 +20,9 @@ const DrJohn = () => {
       <div className="doctor-info">
         {/* Left - Image & Button */}
         <div className="doctor-left">
-          <img src={doctor1} alt="Dr. John" className="doctor-image" />
-          <h3>Dr. JOHN</h3>
-          <p>CARDIOLOGIST</p>
+          <img src={doctor18} alt="Dr. Rohit Sharma" className="doctor-image" />
+          <h3>Dr. ROHIT SHARMA</h3>
+          <p>GENERAL HEALTH</p>
           <button onClick={() => navigate("/booking")} className="appointment-btn">
             BOOK APPOINTMENT
           </button>
@@ -34,25 +34,23 @@ const DrJohn = () => {
             <tbody>
               <tr>
                 <td className="label">Qualifications</td>
-                <td>MD (Cardiology)</td>
+                <td>MBBS, MD (General Medicine)</td>
               </tr>
               <tr>
                 <td className="label">Experience</td>
-                <td>27 Years</td>
+                <td>9 Years</td>
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (08:00 AM – 4:00 PM)</td>
+                <td>TUE – SUN (11:30 AM – 4:30 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">
                   <p>
-                    Dr. John has completed her undergraduate from P.S.G. Institute of Medical Sciences & Research,
-                    Coimbatore...
+                    Dr. Rohit Sharma earned his MBBS from <strong>Government Medical College, Nagpur</strong>, and completed his MD in General Medicine from <strong>Bangalore Medical College and Research Institute</strong>. He is known for his meticulous attention to detail and deep understanding of internal health.
                   </p>
                   <p>
-                    Currently, he heads the department of Cardiology at Sneharika Hospital with a team of four
-                    Consultants...
+                    He has over 9 years of experience in managing a wide spectrum of general health conditions including hypertension, diabetes, infections, and lifestyle-related disorders. At Sneharika Hospital, Dr. Sharma is recognized not just for his clinical expertise but also for his patient-friendly nature and strong communication skills that make consultations effective and comforting.
                   </p>
                 </td>
               </tr>
@@ -64,4 +62,4 @@ const DrJohn = () => {
   );
 };
 
-export default DrJohn;
+export default DrRohitSharma;

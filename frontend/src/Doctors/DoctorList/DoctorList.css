@@ -1,32 +1,33 @@
 /* General Container */
 .doctor-profile-container {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    padding: 0 8%;
-    background-color: #fff;
-    color: #333;
-    line-height: 1.6;
-  }
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 0 8%;
+  background-color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;   /* 👈 Ensures full screen height */
+  box-sizing: border-box;
+}
+
   
   /* Header */
   .doctor-header {
-    background: linear-gradient(rgba(94, 0, 128, 0.7), rgba(94, 0, 128, 0.7)),
-                url('/header-bg.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(94, 0, 128, 0.7), rgba(94, 0, 128, 0.7));
     color: #fff;
-    padding: 50px 30px;
+    padding: 30px 30px;
     text-align: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
   
   .doctor-header h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
   }
   
   
   .doctor-header p {
     margin-top: 10px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     opacity: 0.9;
   }
   
@@ -39,42 +40,51 @@
   .doctor-info {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row; /* 👈 This will reverse the order */
     justify-content: space-between;
     gap: 3rem;
     margin-top: 40px;
   }
   
+  
   /* Left - Image & Name */
   .doctor-left {
     flex: 1;
-    max-width: 300px;
+    max-width: 450px; /* Increased from 300px to 500px */
     text-align: center;
   }
   
+  .doctor-left img{
+    width:400px;
+    height:550px;
+  }
   .doctor-image {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    height: auto; /* Ensures image maintains aspect ratio */
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     object-fit: cover;
   }
   
+  
   .doctor-left h3 {
     margin-top: 1rem;
-    font-size: 1.3rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: #0d0c22;
     text-transform: uppercase;
   }
   
   .doctor-left p {
-    color: #777;
+    color: #5b5a5a;
     margin-top: 0.4rem;
-    font-size: 0.95rem;
+    font-size: 2rem;
   }
   
   /* Book Button */
   .appointment-btn {
     margin-top: 1rem;
+    font-size: 40px;
     background-color: #e6007e;
     color: #fff;
     border: none;
@@ -111,22 +121,22 @@
     color: #222;
     width: 35%;
   }
-  
-  /* Bio Section */
-  .doctor-bio {
-    margin-top: 40px;
-    margin-left: 40%;
-    padding: 1.5rem;
-    background: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .doctor-bio p {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: #444;
-  }
+
+
+  /* Bio row inside the table */
+.details-table .bio-row td {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 2rem;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
+  line-height: 1.7;
+}
+
+.details-table .bio-row p {
+  margin-bottom: 2rem;
+}
+
   
   /* Responsive */
   @media (max-width: 768px) {

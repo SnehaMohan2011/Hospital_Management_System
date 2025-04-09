@@ -8,8 +8,24 @@ import LogoImage from "../assets/logo.png";
 import doctor1 from "../assets/doc12.jpeg";
 import doctor2 from "../assets/doc16.jpeg";
 import doctor3 from "../assets/doc17.jpeg";
-import doctor4 from "../assets/doc19.jpeg";
-import doctor5 from "../assets/doc8.jpg";
+import doctor4 from "../assets/doc2.jpeg";
+import doctor5 from "../assets/doc5.jpg";
+import doctor6 from "../assets/doc1.jpeg";
+import doctor7 from "../assets/doc7.jpeg";
+import doctor8 from "../assets/doc3.jpeg";
+import doctor9 from "../assets/doc8.jpg";
+import doctor10 from "../assets/doc6.jpg";
+import doctor11 from "../assets/doc9.jpeg";
+import doctor12 from "../assets/doc10.jpeg";
+import doctor13 from "../assets/doc11.jpeg";
+import doctor14 from "../assets/doc13.jpeg";
+import doctor15 from "../assets/doc4.jpg";
+import doctor16 from "../assets/doc15.jpeg";
+import doctor17 from "../assets/doc14.jpg";
+import doctor18 from "../assets/doc18.jpeg";
+import doctor19 from "../assets/doc20.jpg";
+import doctor20 from "../assets/doc24.jpeg";
+
 
 const allDoctors = [
   {
@@ -19,139 +35,167 @@ const allDoctors = [
     department: "Cardiology",
     image: doctor1,
     link: "/doctors/dr-john",
-  },
+  },  
   {
     id: 2,
-    name: "Dr. Meera Shah",
-    specialization: "Neurologist",
-    department: "Neurology",
-    image: doctor2,
-  },
-  {
-    id: 3,
-    name: "Dr. Neha Verma",
-    specialization: "Pediatrics",
-    department: "Pediatrics",
-    image: doctor3,
-  },
-  {
-    id: 4,
-    name: "Dr. Prakash Menon",
-    specialization: "Dermatologist",
-    department: "Dermatology",
-    image: doctor4,
-  },
-  {
-    id: 5,
-    name: "Dr. Sanjana Rao",
-    specialization: "General Physician",
-    department: "General Health",
-    image: doctor5,
-  },
-  {
-    id: 6,
     name: "Dr. Asha Reddy",
     specialization: "Cardiologist",
     department: "Cardiology",
     image: doctor2,
+    link: "/doctors/dr-asha-reddy"
   },
   {
-    id: 7,
+    id: 3,
     name: "Dr. Karan Bhatia",
     specialization: "Cardiologist",
     department: "Cardiology",
     image: doctor3,
+    link: "/doctors/dr-karan-bhatia",
   },
   {
-    id: 8,
+    id: 4,
     name: "Dr. Priya Nair",
     specialization: "Cardiologist",
     department: "Cardiology",
     image: doctor4,
+    link: "/doctors/dr-priya-nair",
   },
   {
-    id: 9,
+    id: 5,
+    name: "Dr. Meera Shah",
+    specialization: "Neurologist",
+    department: "Neurology",
+    image: doctor5,
+    link: "/doctors/dr-meera-shah",
+   
+  },
+ 
+  {
+    id: 6,
     name: "Dr. Arvind Rao",
     specialization: "Neurologist",
     department: "Neurology",
-    image: doctor3,
+    image: doctor6,
+    link: "/doctors/dr-arvind-rao",
   },
   {
-    id: 10,
+    id: 7,
     name: "Dr. Sneha Pillai",
     specialization: "Neurologist",
     department: "Neurology",
-    image: doctor1,
+    image: doctor7,
+    link:"/doctors/dr-sneha-pillai",
   },
   {
-    id: 11,
+    id: 8,
     name: "Dr. Nilesh Kumar",
     specialization: "Neurologist",
     department: "Neurology",
-    image: doctor4,
+    image: doctor8,
+    link: "/doctors/dr-nilesh-kumar",
   },
   {
-    id: 12,
+    id: 9,
+    name: "Dr. Neha Verma",
+    specialization: "Pediatrics",
+    department: "Pediatrics",
+    image: doctor9,
+    link:"/doctors/dr-neha-verma",
+  },
+  {
+    id: 10,
     name: "Dr. Ramesh Iyer",
     specialization: "Pediatrics",
     department: "Pediatrics",
-    image: doctor1,
+    image: doctor10,
+    link:"/doctors/dr-ramesh-iyer",
+
   },
   {
-    id: 13,
+    id: 11,
     name: "Dr. Kavya Sinha",
     specialization: "Pediatrics",
     department: "Pediatrics",
-    image: doctor2,
+    image: doctor11,
+    link:"/doctors/dr-kavya-sinha",
+
   },
   {
-    id: 14,
+    id: 12,
     name: "Dr. Vikram Solanki",
     specialization: "Pediatrics",
     department: "Pediatrics",
-    image: doctor4,
+    image: doctor12,
+    link:"/doctors/dr-vikram-solanki",
+
   },
   {
-    id: 15,
+    id: 13,
+    name: "Dr. Prakash Menon",
+    specialization: "Dermatologist",
+    department: "Dermatology",
+    image: doctor13,
+    link:"/doctors/dr-prakash-menon",
+
+  },
+  {
+    id: 14,
     name: "Dr. Reema Das",
     specialization: "Dermatologist",
     department: "Dermatology",
-    image: doctor1,
+    image: doctor14,
+    link:"/doctors/dr-reema-das",
+
   },
   {
-    id: 16,
+    id: 15,
     name: "Dr. Anjali Suresh",
     specialization: "Dermatologist",
     department: "Dermatology",
-    image: doctor2,
+    image: doctor15,
+    link:"/doctors/dr-anjali-suresh",
+
   },
   {
-    id: 17,
+    id: 16,
     name: "Dr. Vinod Krishnan",
     specialization: "Dermatologist",
     department: "Dermatology",
-    image: doctor3,
+    image: doctor16,
+    link:"/doctors/dr-vinod-krishnan",
+
+ },
+  {
+    id: 17,
+    name: "Dr. Sanjana Rao",
+    specialization: "General Physician",
+    department: "General Health",
+    image: doctor17,
+    link:"/doctors/dr-sanjana-rao"
   },
   {
     id: 18,
     name: "Dr. Rohit Sharma",
     specialization: "General Physician",
     department: "General Health",
-    image: doctor5,
+    image: doctor18,
+    link:"/doctors/dr-rohit-sharma",
   },
   {
     id: 19,
     name: "Dr. Tanya Joseph",
     specialization: "General Physician",
     department: "General Health",
-    image: doctor5,
+    image: doctor19,
+    link:"/doctors/dr-tanya-joseph",
   },
   {
     id: 20,
     name: "Dr. Arjun Kapoor",
     specialization: "General Physician",
     department: "General Health",
-    image: doctor5,
+    image: doctor20,
+    link:"/doctors/dr-arjun-kapoor",
   },
 ];
 
