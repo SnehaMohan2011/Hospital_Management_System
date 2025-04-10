@@ -1,7 +1,10 @@
 /* AppointmentsView.css */
 
+
+
+
 .appointments-container {
-    padding: 20px;
+    padding: 1px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
   
@@ -37,7 +40,7 @@
   }
   
   .appointments-table {
-    width: 2200px;
+    width: 1500px;
     min-width: 1000px;
     border-collapse: collapse;
     border-radius: 12px;
@@ -55,7 +58,7 @@
   .appointments-table td{
     white-space: nowrap; 
     vertical-align: middle;
-    padding: 20px 24px;
+    padding: 30px 20px;
     text-align: left;
   }
   
@@ -88,3 +91,8 @@
     font-size: 30px;
   }
   
+
+
+  
+
+

@@ -1,0 +1,121 @@
+.doctorview-container {
+    width: 100%;
+    padding: 10px 50px;
+  }
+  
+  /* Title */
+  .doctorview-container h2 {
+    font-size: 60px;
+    margin-top: 550px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: left;
+    color: #2c3e50;
+  }
+  
+  /* Doctor Grid */
+  .dash-doctor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Doctor Card */
+  .dash-doctor-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    padding: 24px 28px;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    max-width: 350px; /* Increased max width */
+    min-height: 250px; /* Increased height */
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  
+  .dash-doctor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dash-doctor-card h4 {
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #0056b3;
+  }
+  
+  .dash-doctor-card p {
+    font-size: 25px;
+    color: #666;
+  }
+  
+  
+  
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .dash-doctor-list {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .doctorview-container {
+      padding: 30px 20px;
+    }
+  
+    .doctorview-container h2 {
+      font-size: 26px;
+    }
+  
+    .dash-appointment-section table {
+      font-size: 13px;
+    }
+  
+    .dash-doctor-card {
+      padding: 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dash-doctor-card h4 {
+      font-size: 16px;
+    }
+  
+    .dash-doctor-card p {
+      font-size: 13px;
+    }
+  
+    .dash-appointment-section table {
+      font-size: 12px;
+    }
+  }
+
+  .appointment-view {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .back-btn {
+    font-size: 30px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .back-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Optional fade animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

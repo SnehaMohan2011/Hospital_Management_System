@@ -84,7 +84,7 @@ const frontpage = () => {
                             <li onClick={() => navigate("/doctors")}>Doctors</li>
                             <li onClick={() => navigate("/facilities")}>Facilities</li>
                             <li onClick={() => navigate("/contact")}>Contact Us</li>
-                            <li onClick={() => navigate("/admin/login")}>Admin Log</li>
+                           
                         </ul>
                     </nav>
         
@@ -170,7 +170,7 @@ const frontpage = () => {
                     ))}
                 </div>
 
-                <button className="cta-button">
+                <button className="cta-button" onClick={() => navigate("/about")}>
                     Know More <FaArrowRight />
                 </button>
             </div>

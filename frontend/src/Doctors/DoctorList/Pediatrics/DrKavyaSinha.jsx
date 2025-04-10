@@ -36,7 +36,7 @@ const DrKavyaSinha = () => {
               </tr>
               <tr>
                 <td className="label">Availability</td>
-                <td>MON – SAT (10:00 PM – 02:30 PM)</td>
+                <td>MON – SAT (10:00 AM – 02:30 PM)</td>
               </tr>
               <tr className="bio-row">
                 <td colSpan="2">

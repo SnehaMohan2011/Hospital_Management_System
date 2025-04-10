@@ -233,7 +233,7 @@ const Doctors = () => {
           <li onClick={() => navigate("/doctors")}>Doctors</li>
           <li onClick={() => navigate("/facilities")}>Facilities</li>
           <li onClick={() => navigate("/contact")}>Contact Us</li>
-          <li onClick={() => navigate("/admin/login")}>Admin Log</li>
+         
         </ul>
       </nav>
 
@@ -268,7 +268,7 @@ const Doctors = () => {
                     <img src={doc.image} alt={doc.name} />
                     <h3>{doc.name}</h3>
                     <p>{doc.specialization}</p>
-                    <p><strong>{doc.department}</strong></p>
+                    
                   </div>
                 ))
               ) : (

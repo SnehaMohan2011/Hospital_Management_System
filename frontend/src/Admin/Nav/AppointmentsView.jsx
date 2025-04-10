@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "./Nav.css"; // Make sure this is the correct CSS file
+import "./Nav.css";
 
 const AppointmentsView = () => {
   const [appointments, setAppointments] = useState([]);
@@ -39,7 +39,7 @@ const AppointmentsView = () => {
         case 'History':
           return new Date(appt.date) < new Date();
         case 'Cancelled':
-          return appt.status === 'cancelled'; // optional field
+          return appt.status === 'cancelled';
         default:
           return true;
       }
@@ -47,14 +47,22 @@ const AppointmentsView = () => {
     setFilteredAppointments(filtered);
   }, [filter, appointments]);
 
-  const handleDelete = async (id) => {
+ 
+
+  const handleCancel = async (id) => {
     try {
-      await axios.delete(`http://localhost:5001/appointments/${id}`, {
+      const response = await axios.put(`http://localhost:5001/appointments/${id}/cancel`, {}, {
         withCredentials: true,
       });
-      setAppointments((prev) => prev.filter((appt) => appt._id !== id));
+
+      // Update local state
+      setAppointments((prev) =>
+        prev.map((appt) =>
+          appt._id === id ? { ...appt, status: 'cancelled' } : appt
+        )
+      );
     } catch (error) {
-      alert('Failed to delete appointment.');
+      alert('Failed to cancel appointment.');
     }
   };
 
@@ -64,7 +72,6 @@ const AppointmentsView = () => {
     <div className="appointments-container">
       <h2 className="heading">Manage Appointments</h2>
 
-      {/* Filter Tabs */}
       <div className="filter-tabs">
         {filters.map((item) => (
           <button
@@ -95,7 +102,8 @@ const AppointmentsView = () => {
                 <th>Doctor</th>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Action</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -111,19 +119,24 @@ const AppointmentsView = () => {
                     <td>{appt.doctor}</td>
                     <td>{appt.date}</td>
                     <td>{appt.time}</td>
+                    <td>{appt.status || 'active'}</td>
                     <td>
-                      <button
-                        onClick={() => handleDelete(appt._id)}
-                        className="delete-btn"
-                      >
-                        Delete
-                      </button>
+                      
+                      {appt.status !== 'cancelled' && (
+                        <button
+                          onClick={() => handleCancel(appt._id)}
+                          className="delete-btn"
+                          style={{ backgroundColor: '#ffc107', marginLeft: '8px' }}
+                        >
+                          Cancel
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="10" className="no-data">
+                  <td colSpan="11" className="no-data">
                     No appointments found.
                   </td>
                 </tr>

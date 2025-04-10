@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import './Admin.css';
-import "../index.css";
+
 import LogoImage from "../assets/logo.png";
 import axios from "axios";
 
@@ -61,16 +61,7 @@ const AdminLogin = () => {
                 </div>
             </header>
 
-            <nav className="navbar">
-                <ul>
-                    <li onClick={() => navigate("/")}>Home</li>
-                    <li onClick={() => navigate("/about")}>About Us</li>
-                    <li onClick={() => navigate("/doctors")}>Doctors</li>
-                    <li onClick={() => navigate("/facilities")}>Facilities</li>
-                    <li onClick={() => navigate("/contact")}>Contact Us</li>
-                    <li onClick={() => navigate("/admin/login")}>Admin Login</li>
-                </ul>
-            </nav>
+            
 
             <div className="login-container">
                 <div className="login-box">

@@ -80,7 +80,7 @@ const Facilities = () => {
                             <li onClick={() => navigate("/doctors")}>Doctors</li>
                             <li onClick={() => navigate("/facilities")}>Facilities</li>
                             <li onClick={() => navigate("/contact")}>Contact Us</li>
-                            <li onClick={() => navigate("/admin/login")}>Admin Log</li>
+                           
                 </ul>
             </nav>
 
