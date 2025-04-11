@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import './Admin.css';
 import "../index.css";
 import LogoImage from "../assets/logo.png";
 import ProfileImage from "../assets/profile.png";
-
 
 import DashboardView from "../Admin/Nav/DashboardView";
 import AppointmentsView from "../Admin/Nav/AppointmentsView";
@@ -37,6 +35,7 @@ const AdminDashboard = () => {
   return (
     <div className="admin-layout">
       {/* Sidebar */}
+      <div>
       <nav className="admin-navbar-vertical">
         <div className="logo-container-vertical">
           <img src={LogoImage} alt="Logo" className="logo" />
@@ -44,15 +43,30 @@ const AdminDashboard = () => {
           <p className="tagline">"Expertise You Can Trust"</p>
         </div>
         <ul className="nav-links">
-          <li onClick={() => setSelectedTab("dashboard")}>Dashboard</li>
-          <li onClick={() => setSelectedTab("appointments")}>Appointments</li>
-          <li onClick={() => setSelectedTab("doctors")}>Doctors</li>
+          <li
+            className={selectedTab === "dashboard" ? "active-tab" : ""}
+            onClick={() => setSelectedTab("dashboard")}
+          >
+            Dashboard
+          </li>
+          <li
+            className={selectedTab === "appointments" ? "active-tab" : ""}
+            onClick={() => setSelectedTab("appointments")}
+          >
+            Appointments
+          </li>
+          <li
+            className={selectedTab === "doctors" ? "active-tab" : ""}
+            onClick={() => setSelectedTab("doctors")}
+          >
+            Doctors
+          </li>
         </ul>
       </nav>
-
+      </div>
+      <div>
       {/* Main Panel */}
       <div className="dashboard-main-panel">
-        {/* Top Header */}
         <div className="dashboard-header">
           <div className="time-display">{currentTime}</div>
           <div className="admin-profile">
@@ -60,13 +74,14 @@ const AdminDashboard = () => {
             <span className="admin-name">Admin</span>
           </div>
         </div>
+        </div>
+        </div>
 
-        {/* Main Content */}
-        <main className="content">
-          {renderContent()}
-        </main>
+        
+          <main className="content">{renderContent()}</main>
+         
       </div>
-    </div>
+   
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "./Nav.css";
+import './Nav.css';
+import './AppointmentView.css';
 
 const AppointmentsView = () => {
   const [appointments, setAppointments] = useState([]);
@@ -8,6 +9,7 @@ const AppointmentsView = () => {
   const [filter, setFilter] = useState('All');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [editingAppointment, setEditingAppointment] = useState(null);
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -47,23 +49,18 @@ const AppointmentsView = () => {
     setFilteredAppointments(filtered);
   }, [filter, appointments]);
 
- 
+  const handleEditClick = (appt) => {
+    setEditingAppointment(appt);
+  };
 
-  const handleCancel = async (id) => {
-    try {
-      const response = await axios.put(`http://localhost:5001/appointments/${id}/cancel`, {}, {
-        withCredentials: true,
-      });
+  const handleCancelEdit = () => {
+    setEditingAppointment(null);
+  };
 
-      // Update local state
-      setAppointments((prev) =>
-        prev.map((appt) =>
-          appt._id === id ? { ...appt, status: 'cancelled' } : appt
-        )
-      );
-    } catch (error) {
-      alert('Failed to cancel appointment.');
-    }
+  const handleConfirmEdit = () => {
+    alert(`Confirmed edit for: ${editingAppointment.name}`);
+    // Placeholder for edit logic
+    setEditingAppointment(null);
   };
 
   const filters = ['All', 'Day', 'Month', 'History', 'Cancelled'];
@@ -102,7 +99,6 @@ const AppointmentsView = () => {
                 <th>Doctor</th>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -119,16 +115,14 @@ const AppointmentsView = () => {
                     <td>{appt.doctor}</td>
                     <td>{appt.date}</td>
                     <td>{appt.time}</td>
-                    <td>{appt.status || 'active'}</td>
                     <td>
-                      
                       {appt.status !== 'cancelled' && (
                         <button
-                          onClick={() => handleCancel(appt._id)}
+                          onClick={() => handleEditClick(appt)}
                           className="delete-btn"
                           style={{ backgroundColor: '#ffc107', marginLeft: '8px' }}
                         >
-                          Cancel
+                          EDIT
                         </button>
                       )}
                     </td>
@@ -145,6 +139,37 @@ const AppointmentsView = () => {
           </table>
         </div>
       )}
+
+      {/* Modal for Editing */}
+      {editingAppointment && (
+  <div className="edit-modal-overlay">
+    <div className="edit-modal">
+      {/* Close button at top-right */}
+      <button className="modal-close-btn" onClick={handleCancelEdit} title="Close">
+  &times;
+</button>
+
+
+      <h3>Editing Appointment</h3>
+      <p><strong>Name:</strong> {editingAppointment.name}</p>
+      <p><strong>Email:</strong> {editingAppointment.email}</p>
+      <p><strong>Phone:</strong> {editingAppointment.phone}</p>
+      <p><strong>Department:</strong> {editingAppointment.department}</p>
+      <p><strong>Date:</strong> {editingAppointment.date}</p>
+      <p><strong>Time:</strong> {editingAppointment.time}</p>
+
+      <div className="edit-modal-actions">
+        <button className="edit-bar-btn cancel" onClick={handleCancelEdit}>
+          Cancel
+        </button>
+        <button className="edit-bar-btn confirm" onClick={handleConfirmEdit}>
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

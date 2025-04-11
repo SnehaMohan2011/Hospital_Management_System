@@ -6,8 +6,9 @@ body {
   font-size: 2.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f9;
-  overflow: scroll;
+  overflow-y: scroll;
   scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 body::-webkit-scrollbar {
@@ -191,15 +192,20 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
 
 /* Sidebar */
 .admin-navbar-vertical {
-  width: 450px;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px; /* Consider reducing width for better responsiveness */
+  height: 100vh;
   background-color: #ffffff;
   border-right: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
   padding: 0;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
 }
+
 
 .logo-container-vertical {
   background-color: #eff4fb;
@@ -246,8 +252,16 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   font-weight: 500;
 }
 
+/* Active Nav Link (Desktop & Mobile) */
+.nav-links li.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
 /* Main Dashboard */
 .dashboard-main-panel {
+  position:fixed;
   width: 100%;
 }
 
@@ -259,7 +273,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   padding: 30px;
   background-color: #f1f5f9;
   border-bottom: 1px solid #ddd;
-  height: 80px;
+  height: 150px;
 }
 
 .time-display {
@@ -292,22 +306,21 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   color: #333;
 }
 
-/* Dashboard Content */
+
 .content {
   flex: 1;
-  padding: 60px;
-  max-height: calc(100vh - 140px);
+  padding: 20px; /* Account for header */
   transition: all 0.3s ease-in-out;
-  background: none;        /* explicitly remove background */
-  box-shadow: none;        /* remove shadow */
-  border-radius: 0;        /* remove rounding */
-  margin: 0;               /* remove spacing around */
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  
 }
-
 
 /* Responsive Admin Layout */
 @media (max-width: 992px) {
   .admin-navbar-vertical {
+    position: static;
     width: 100%;
     height: auto;
     flex-direction: row;
@@ -330,7 +343,14 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
     white-space: nowrap;
   }
 
+  .nav-links li.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+
   .dashboard-header {
+    position: static;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -341,8 +361,12 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
     font-size: 24px;
   }
 
-  .content {
+  .dash-content {
     margin: 10px;
+  }
+
+  .content {
+    margin: 0;
     padding: 10px;
   }
 }

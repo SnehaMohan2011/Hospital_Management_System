@@ -40,7 +40,7 @@ function DoctorsPage() {
                 onClick={() => handleDoctorClick(doctor)}
               >
                 <h4>{doctor.name}</h4>
-                <p><strong>Specialization:</strong> {doctor.department || doctor.specialization}</p>
+                <p><strong>Department: </strong> {doctor.department || doctor.specialization}</p>
               </div>
             ))}
           </div>

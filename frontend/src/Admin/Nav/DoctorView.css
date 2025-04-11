@@ -1,121 +1,189 @@
 .doctorview-container {
-    width: 100%;
-    padding: 10px 50px;
-  }
-  
-  /* Title */
-  .doctorview-container h2 {
-    font-size: 60px;
-    margin-top: 550px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    text-align: left;
-    color: #2c3e50;
-  }
-  
-  /* Doctor Grid */
+  width: 100%;
+  max-width: 1200px;
+  margin: 130px 450px; /* Center content with spacing from top and sides */
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.doctorview-container h2 {
+  font-size: 60px;
+  margin-top: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: left;
+  color: #2c3e50;
+}
+
+/* Doctor Grid */
+.dash-doctor-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 4 cards in a row */
+  gap: 40px;
+  justify-items: center;
+  margin-bottom: 20px;
+}
+
+/* Doctor Card */
+.dash-doctor-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  padding: 24px 28px;
+  transition: all 0.3s ease-in-out;
+  width: 1000px;
+  min-height: 250px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dash-doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dash-doctor-card h4 {
+  font-size: 55px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #0056b3;
+}
+
+.dash-doctor-card p {
+  font-size: 29px;
+  color: #666;
+}
+
+
+
+@media (max-width: 900px) {
   .dash-doctor-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 10px;
-    justify-items: center;
-    margin-bottom: 10px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Doctor Card */
-  .dash-doctor-card {
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    padding: 24px 28px;
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-    max-width: 350px; /* Increased max width */
-    min-height: 250px; /* Increased height */
-    cursor: pointer;
-    text-align: left;
-  }
-  
-  
-  .dash-doctor-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dash-doctor-card h4 {
-    font-size: 45px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: #0056b3;
-  }
-  
-  .dash-doctor-card p {
-    font-size: 25px;
-    color: #666;
-  }
-  
-  
-  
-  /* Responsive Breakpoints */
-  @media (max-width: 1024px) {
-    .dash-doctor-list {
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .doctorview-container {
-      padding: 30px 20px;
-    }
-  
-    .doctorview-container h2 {
-      font-size: 26px;
-    }
-  
-    .dash-appointment-section table {
-      font-size: 13px;
-    }
-  
-    .dash-doctor-card {
-      padding: 18px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .dash-doctor-card h4 {
-      font-size: 16px;
-    }
-  
-    .dash-doctor-card p {
-      font-size: 13px;
-    }
-  
-    .dash-appointment-section table {
-      font-size: 12px;
-    }
+}
+
+@media (max-width: 600px) {
+  .dash-doctor-list {
+    grid-template-columns: 1fr;
   }
 
+  .doctorview-container {
+    padding: 20px;
+  }
+
+  .doctorview-container h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .dash-doctor-card {
+    padding: 20px;
+  }
+
+  .dash-doctor-card h4 {
+    font-size: 20px;
+  }
+
+  .dash-doctor-card p {
+    font-size: 16px;
+  }
+}
+
+
+/* Optional fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.appointment-view {
+  padding: 20px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.back-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 40px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
+
+.appointment-view h3 {
+  font-size: 40px;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.appointment-view table {
+  width:max-content;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.appointment-view th,
+.appointment-view td {
+  padding: 20px 20px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 30px;
+}
+
+.appointment-view thead {
+  background-color: #007bff;
+  color: white;
+}
+
+.appointment-view tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.appointment-view p {
+  font-size: 16px;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .appointment-view {
-    animation: fadeIn 0.3s ease-in-out;
+    padding: 20px;
   }
-  
+
+  .appointment-view h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .appointment-view th,
+  .appointment-view td {
+    font-size: 13px;
+    padding: 10px;
+  }
+
   .back-btn {
-    font-size: 30px;
-    background-color: #007bff;
-    color: white;
+    font-size: 14px;
     padding: 8px 14px;
-    border: none;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    cursor: pointer;
   }
-  
-  .back-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Optional fade animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+}
+
