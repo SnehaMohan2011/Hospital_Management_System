@@ -13,4 +13,6 @@ const doctorSchema = new mongoose.Schema({
   }, // Example: ["10:00 AM", "2:00 PM"]
 });
 
+
+
 module.exports = mongoose.model("Doctor", doctorSchema);

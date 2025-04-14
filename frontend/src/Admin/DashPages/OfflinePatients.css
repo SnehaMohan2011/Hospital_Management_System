@@ -1,0 +1,99 @@
+.offline-patient-container {
+    max-width: 1000px;
+    margin: 150px 900px;
+    padding: 25px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #2c3e50;
+  }
+  
+  .offline-patient-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-label {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .form-input {
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .submit-btn, .view-records-btn {
+    padding: 12px;
+    font-size: 30px;
+    margin-top: 15px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-btn:hover, .view-records-btn:hover {
+    background-color: #0056b3;
+  }
+
+  
+
+
+
+
+  
+
+  .patient-records-section {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .records-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  .no-records {
+    font-size: 20px;
+    color: #888;
+    text-align: center;
+  }
+  
+  .record-card {
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .value {
+    color: #000;
+  }
+  

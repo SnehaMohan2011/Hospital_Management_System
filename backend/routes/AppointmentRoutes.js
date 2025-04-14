@@ -30,12 +30,14 @@ router.get('/doctor/:doctorName', async (req, res) => {
 
 router.get('/all', async (req, res) => {
   try {
-    const appointments = await Appointment.find(); // fetch all
+    const appointments = await AppointmentModel.find(); // fetch all
     res.json(appointments);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching all appointments' });
   }
 });
+
+
 
 
 module.exports = router;

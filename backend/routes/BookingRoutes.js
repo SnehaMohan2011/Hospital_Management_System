@@ -1,29 +1,43 @@
-const express = require("express");
+// routers/bookingRoutes.js
+const express = require('express');
 const router = express.Router();
-const Booking = require("../models/Booking");
+const Appointment = require('../models/AppointmentModel'); // Reference the Appointment model
+const { handleBooking } = require('../Controller/bookingController'); 
 
-// Book a doctor
+// Book an appointment with a 4-person-per-day-per-doctor limit
 router.post("/book", async (req, res) => {
-  const { doctorId, patientName, date, time } = req.body;
-
-  if (!doctorId || !patientName || !date) {
-    return res.status(400).json({ message: "Missing required fields" });
-  }
+  const { name, email, phone, department, doctor, date, time } = req.body;
 
   try {
-    // Check if already booked
-    const alreadyBooked = await Booking.findOne({ doctorId, date });
-    if (alreadyBooked) {
-      return res.status(409).json({ message: "Doctor already booked on this date" });
+    // Count appointments for the same doctor on the same date
+    const existingAppointments = await Appointment.find({ doctor, date });
+
+    if (existingAppointments.length >= 4) {
+      return res.status(400).json({ message: 'This doctor is fully booked for the selected date.' });
     }
 
-    const newBooking = new Booking({ doctorId, patientName, date, time });
-    await newBooking.save();
+    // Save the new appointment
+    const newAppointment = new Appointment({
+      name,
+      email,
+      phone,
+      department,
+      doctor,
+      date,
+      time,
+    });
 
-    res.status(200).json({ message: "Doctor booked successfully" });
+    await newAppointment.save();
+
+    res.status(201).json({ message: 'Appointment booked successfully', appointment: newAppointment });
   } catch (error) {
-    res.status(500).json({ message: "Booking failed", error: error.message });
+    res.status(500).json({ message: 'Server error', error });
   }
 });
+
+
+router.post('/',handleBooking);
+
+
 
 module.exports = router;

@@ -155,6 +155,8 @@ const AppointmentsView = () => {
       <p><strong>Email:</strong> {editingAppointment.email}</p>
       <p><strong>Phone:</strong> {editingAppointment.phone}</p>
       <p><strong>Department:</strong> {editingAppointment.department}</p>
+      <p><strong>Gender:</strong> {editingAppointment.gender}</p>
+      <p><strong>Age:</strong> {editingAppointment.age}</p>
       <p><strong>Date:</strong> {editingAppointment.date}</p>
       <p><strong>Time:</strong> {editingAppointment.time}</p>
 

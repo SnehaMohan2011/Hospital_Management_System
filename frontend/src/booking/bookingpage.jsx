@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import './bookingpage.css';
 import "../index.css";
 import LogoImage from "../assets/logo.png";
+import DatePicker from "react-datepicker";
+
 
 const Bookingpage = () => {
     const navigate = useNavigate();
@@ -22,6 +24,7 @@ const Bookingpage = () => {
     const [selectedDoctors, setSelectedDoctors] = useState([]);
     const [doctorTime, setDoctorTime] = useState("");
     const [bookedDoctors, setBookedDoctors] = useState([]);
+    const [bookedDates, setBookedDates] = useState([]);
 
     const doctorsByDepartment = {
         Cardiology: [
@@ -56,51 +59,92 @@ const Bookingpage = () => {
         ]
     };
 
-    // Fetch booked doctors when department or date changes
     useEffect(() => {
         const fetchBookedDoctors = async () => {
-            if (formData.department && formData.date) {
+            if (formData.department) {
                 try {
-                    const response = await fetch(`http://localhost:5001/booked-doctors?date=${formData.date}`);
+                    const response = await fetch(`http://localhost:5001/booked-doctors`);
                     const data = await response.json();
                     setBookedDoctors(data);
 
                     const departmentDoctors = doctorsByDepartment[formData.department] || [];
-                    const availableDoctors = departmentDoctors.filter(doc => !data.includes(doc.name));
+
+                    const availableDoctors = departmentDoctors.filter(doc => {
+                        const count = data.filter(entry => entry.doctor === doc.name);
+                        const bookedCount = count.reduce((acc, entry) => acc + entry.count, 0);
+                        return bookedCount < 5;
+                    });
+
                     setSelectedDoctors(availableDoctors);
 
-                    // Reset doctor and time if previously selected doctor is no longer available
-                    if (data.includes(formData.doctor)) {
-                        setFormData(prev => ({ ...prev, doctor: '', time: '' }));
+                    if (!availableDoctors.find(doc => doc.name === formData.doctor)) {
+                        setFormData(prev => ({
+                            ...prev,
+                            doctor: '',
+                            time: '',
+                            date: ''
+                        }));
                         setDoctorTime('');
+                        setBookedDates([]);
                     }
 
                 } catch (err) {
                     console.error("Failed to fetch booked doctors:", err);
                 }
-            } else if (formData.department) {
-                // No date selected yet - just show all department doctors
-                setSelectedDoctors(doctorsByDepartment[formData.department] || []);
             } else {
                 setSelectedDoctors([]);
             }
         };
 
         fetchBookedDoctors();
-    }, [formData.department, formData.date]);
+    }, [formData.department]);
+
+    useEffect(() => {
+        if (formData.doctor) {
+            const filtered = bookedDoctors.filter(entry =>
+                entry.doctor === formData.doctor && entry.count >= 5
+            );
+            const dates = filtered.map(entry => entry.date); // yyyy-mm-dd format
+            setBookedDates(dates);
+        } else {
+            setBookedDates([]);
+        }
+    }, [formData.doctor, bookedDoctors]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-
-        if (name === "doctor") {
+    
+        if (name === "department") {
+            // Update department first
+            setFormData(prev => ({ ...prev, department: value, doctor: '', time: '', date: '' }));
+    
+            // Filter doctors directly
+            const departmentDoctors = doctorsByDepartment[value] || [];
+    
+            const availableDoctors = departmentDoctors.filter(doc => {
+                const count = bookedDoctors.filter(entry => entry.doctor === doc.name);
+                const bookedCount = count.reduce((acc, entry) => acc + entry.count, 0);
+                return bookedCount < 5;
+            });
+    
+            setSelectedDoctors(availableDoctors);
+            setDoctorTime('');
+            setBookedDates([]);
+        }
+        else if (name === "doctor") {
             const selected = selectedDoctors.find(doc => doc.name === value);
             const time = selected?.time || "";
             setDoctorTime(time);
-            setFormData({ ...formData, doctor: value, time });
-        } else {
-            setFormData({ ...formData, [name]: value });
+            setFormData(prev => ({ ...prev, doctor: value, time, date: '' }));
+        }
+        else if (name === "date") {
+            setFormData(prev => ({ ...prev, date: value }));
+        }
+        else {
+            setFormData(prev => ({ ...prev, [name]: value }));
         }
     };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -126,14 +170,12 @@ const Bookingpage = () => {
 
     return (
         <div className="homepage-container">
-            {/* Header Section */}
             <header className="header">
                 <div className="logo-container">
                     <img src={LogoImage} alt="Sneharika Hospital Logo" className="logo" />
                     <h1>Sneharika Hospital</h1>
                     <p>"Expertise You Can Trust"</p>
                 </div>
-
                 <div className="contact-info">
                     <p>+91 422 350 0000 | +91 422 450 0000</p>
                     <p>+91 7970 108 108</p>
@@ -141,7 +183,6 @@ const Bookingpage = () => {
                 </div>
             </header>
 
-            {/* Navigation Bar */}
             <nav className="navbar">
                 <ul>
                     <li onClick={() => navigate("/")}>Home</li>
@@ -152,64 +193,57 @@ const Bookingpage = () => {
                 </ul>
             </nav>
 
-            {/* Booking Section */}
-            <div className="homepage-container">
-                <div className="booking-container">
-                    <h2>Book Your Appointment</h2>
-                    <form className="booking-form" onSubmit={handleSubmit}>
-                        <div className="input-group">
-                            <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-                            <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
-                        </div>
-
-                        <div className="input-group">
-                            <input type="tel" name="phone" placeholder="Your Phone Number" value={formData.phone} onChange={handleChange} required />
-                            <input type="text" name="age" placeholder="Your Age" value={formData.age} onChange={handleChange} required />
-                        </div>
-
-                        <div className="input-group">
-                            <select name="gender" value={formData.gender} onChange={handleChange} required>
-                                <option value="">Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-
-                            <select name="department" value={formData.department} onChange={handleChange} required>
-                                <option value="">Select Department</option>
-                                {Object.keys(doctorsByDepartment).map((dept) => (
-                                    <option key={dept} value={dept}>{dept}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <div className="input-group">
-                            <select name="doctor" value={formData.doctor} onChange={handleChange} required>
-                                <option value="">Select Doctor</option>
-                                {selectedDoctors.length > 0 ? (
-                                    selectedDoctors.map((doc, index) => (
-                                        <option key={index} value={doc.name}>{doc.name}</option>
-                                    ))
-                                ) : (
-                                    <option value="" disabled>No doctors available</option>
-                                )}
-                            </select>
-
-                            <input type="date" name="date" value={formData.date} onChange={handleChange} required />
-
-                            <input
-                                type="text"
-                                name="time"
-                                value={doctorTime}
-                                readOnly
-                                placeholder="Doctor's Time Slot"
-                                required
-                            />
-                        </div>
-
-                        <button type="submit" className="booking-btn">Confirm Appointment</button>
-                    </form>
-                </div>
+            <div className="booking-container">
+                <h2>Book Your Appointment</h2>
+                <form className="booking-form" onSubmit={handleSubmit}>
+                    <div className="input-group">
+                        <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+                        <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
+                    </div>
+                    <div className="input-group">
+                        <input type="tel" name="phone" placeholder="Your Phone Number" value={formData.phone} onChange={handleChange} required />
+                        <input type="text" name="age" placeholder="Your Age" value={formData.age} onChange={handleChange} required />
+                    </div>
+                    <div className="input-group">
+                        <select name="gender" value={formData.gender} onChange={handleChange} required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <select name="department" value={formData.department} onChange={handleChange} required>
+                            <option value="">Select Department</option>
+                            {Object.keys(doctorsByDepartment).map((dept) => (
+                                <option key={dept} value={dept}>{dept}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="input-group">
+                        <select name="doctor" value={formData.doctor} onChange={handleChange} required>
+                            <option value="">Select Doctor</option>
+                            {selectedDoctors.length > 0 ? (
+                                selectedDoctors.map((doc, index) => (
+                                    <option key={index} value={doc.name}>{doc.name}</option>
+                                ))
+                            ) : (
+                                <option value="" disabled>No doctors available</option>
+                            )}
+                        </select>
+                        <input
+                            type="date"
+                            name="date"
+                            value={formData.date}
+                            onChange={handleChange}
+                            min={new Date().toISOString().split("T")[0]}
+                            required
+                            onKeyDown={(e) => e.preventDefault()} // Prevent manual typing
+                            className={bookedDates.includes(formData.date) ? "disabled-date" : ""}
+                            disabled={selectedDoctors.length === 0}
+                        />
+                        <input type="text" name="time" value={doctorTime} readOnly placeholder="Doctor's Time Slot" required />
+                    </div>
+                    <button type="submit" className="booking-btn">Confirm Appointment</button>
+                </form>
             </div>
         </div>
     );

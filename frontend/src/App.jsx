@@ -35,6 +35,10 @@ import DrSanjanaRao from "./Doctors/DoctorList/GeneralHealth/DrSanjanaRao";
 import DrTanyaJoseph from "./Doctors/DoctorList/GeneralHealth/DrTanyaJoseph";
 
 
+import AdminOfflinePatients from './Admin/DashPages/AdminOfflinePatients';
+import OfflinePatientRecords from './Admin/DashPages/OfflinePatientRecords';
+
+
 function App() {
   return (
     <Router>
@@ -75,7 +79,10 @@ function App() {
         <Route path="/doctors/dr-sanjana-rao" element={<DrSanjanaRao />} />
         <Route path="/doctors/dr-tanya-joseph" element={<DrTanyaJoseph/>} />
 
-        <Route path="/booking" element={<Bookingpage />} /> {/* Fixed case */}
+        <Route path="/booking" element={<Bookingpage />} /> 
+
+        <Route path="/admin/offline-patients" element={<AdminOfflinePatients />} />
+        <Route path="/admin/offline-records" element={<OfflinePatientRecords />} />
 
         {/* ✅ 404 Not Found Page */}
         <Route path="*" element={<h2>Page Not Found</h2>} />

@@ -90,3 +90,11 @@
 .booking-btn:hover {
     background-color: #005ecb;
 }
+
+  
+  input.disabled-date {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+}
+

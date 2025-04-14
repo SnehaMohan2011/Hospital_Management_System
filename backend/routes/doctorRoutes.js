@@ -3,6 +3,7 @@ const router = express.Router();
 const Doctor = require("../models/Doctor");
 const Booking = require("../models/Booking");
 
+
 // Get doctors by department and available on a given date
 router.get("/available", async (req, res) => {
   const { department, date } = req.query;

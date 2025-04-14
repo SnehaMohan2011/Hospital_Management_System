@@ -8,17 +8,22 @@ function DoctorsPage() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
+    // Debugging: Add console.log here to see the response data
     axios.get('http://localhost:5001/doctors')
-      .then(response => setDoctors(response.data))
-      .catch(error => console.error('Error fetching doctors:', error));
+      .then(response => {
+        console.log('Doctors Data:', response.data);  // Log the response to check
+        setDoctors(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching doctors:', error);
+      });
   }, []);
 
   const handleDoctorClick = (doctor) => {
     setSelectedDoctor(doctor);
     axios.get(`http://localhost:5001/appointments/doctor/${encodeURIComponent(doctor.name)}`)
-    .then(response => setAppointments(response.data))
-    .catch(error => console.error('Error fetching appointments:', error));
-  
+      .then(response => setAppointments(response.data))
+      .catch(error => console.error('Error fetching appointments:', error));
   };
 
   const handleBackClick = () => {
@@ -29,24 +34,26 @@ function DoctorsPage() {
   return (
     <div className="doctorview-container">
       {!selectedDoctor ? (
-        // === Doctor List View ===
         <div className="doctor-list-view">
           <h2>Doctors</h2>
           <div className="dash-doctor-list">
-            {doctors.map((doctor) => (
-              <div
-                key={doctor._id}
-                className="dash-doctor-card"
-                onClick={() => handleDoctorClick(doctor)}
-              >
-                <h4>{doctor.name}</h4>
-                <p><strong>Department: </strong> {doctor.department || doctor.specialization}</p>
-              </div>
-            ))}
+            {doctors.length === 0 ? (
+              <p>Loading doctors...</p>
+            ) : (
+              doctors.map((doctor) => (
+                <div
+                  key={doctor._id}
+                  className="dash-doctor-card"
+                  onClick={() => handleDoctorClick(doctor)}
+                >
+                  <h4>{doctor.name}</h4>
+                  <p><strong>Department: </strong> {doctor.department || doctor.specialization}</p>
+                </div>
+              ))
+            )}
           </div>
         </div>
       ) : (
-        // === Appointment View for Selected Doctor ===
         <div className="appointment-view">
           <button className="back-btn" onClick={handleBackClick}>← Back</button>
           <h3>Appointments for Dr. {selectedDoctor.name}</h3>
