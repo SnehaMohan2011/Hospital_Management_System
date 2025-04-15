@@ -8,10 +8,10 @@ function DoctorsPage() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    // Debugging: Add console.log here to see the response data
+  
     axios.get('http://localhost:5001/doctors')
       .then(response => {
-        console.log('Doctors Data:', response.data);  // Log the response to check
+        console.log('Doctors Data:', response.data);  
         setDoctors(response.data);
       })
       .catch(error => {

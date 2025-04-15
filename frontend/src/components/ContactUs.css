@@ -1,21 +1,20 @@
-/* Container Styling */
+
 .contact-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 60px 20px;
     background: #f4f7fc;
-    font-family: Arial, sans-serif; /* Added font family for consistency */
+    font-family: Arial, sans-serif; 
 }
 
-/* Contact Info Section */
 .contact-info {
     text-align: center;
-    max-width: 700px; /* Increased max-width for larger content display */
+    max-width: 700px; 
 }
 
 .contact-info h2 {
-    font-size: 4rem; /* Increased font size for header */
+    font-size: 4rem; 
     color: #1d1e1f;
     margin-bottom: 20px;
 }
@@ -26,7 +25,7 @@
     color: #000000;
 }
 
-/* Contact Details Styling */
+
 .contact-details p{
     font-size:25px;
 }
@@ -34,25 +33,25 @@
 .contact-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Increased margin for better spacing */
-    font-size: 1.3rem; /* Increased font size for better readability */
+    margin-bottom: 20px; 
+    font-size: 1.3rem; 
     color: #34495e;
 }
 
 .contact-item .icon {
-    font-size: 2.5rem; /* Increased icon size */
+    font-size: 2.5rem; 
     color: #213a92;
-    margin-right: 15px; /* Increased space between icon and text */
+    margin-right: 15px;
 }
 
-/* Social Media Icons Styling */
+
 .social-icons {
     margin-top: 30px;
 }
 
 .social-icons a {
-    font-size: 2.5rem; /* Larger icons */
-    margin: 0 15px; /* Increased margin for spacing */
+    font-size: 2.5rem;
+    margin: 0 15px; 
     color: #213a92;
     transition: 0.3s;
 }
@@ -61,20 +60,20 @@
     color: #336393;
 }
 
-/* Contact Form Styling */
+
 .contact-form {
     background: white;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
     max-width: 800px;
     height: 530px;
     text-align: center;
-    margin-top: 50px; /* Increased margin for spacing */
+    margin-top: 50px; 
 }
 
 .contact-form h2 {
-    font-size: 2.5rem; /* Increased font size for form header */
+    font-size: 2.5rem; 
     margin-bottom: 25px;
     color: #2c3e50;
 }
@@ -82,24 +81,23 @@
 .contact-form input,
 .contact-form textarea {
     width: 680px;
-    padding: 15px; /* Increased padding for input fields */
-    margin-bottom: 20px; /* Increased margin for spacing */
+    padding: 15px; 
+    margin-bottom: 20px; 
     border: 1px solid #bdc3c7;
     border-radius: 8px;
-    font-size: 1.6rem; /* Larger font size for inputs */
+    font-size: 1.6rem; 
 }
 
 .contact-form textarea {
-    height: 150px; /* Increased height for text area */
+    height: 150px; 
     resize: none;
 }
 
-/* Submit Button Styling */
 .submit-button {
     background: #3498db;
     color: white;
-    font-size: 2rem; /* Larger button text */
-    padding: 12px 25px; /* Larger padding */
+    font-size: 2rem;
+    padding: 12px 25px; 
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -110,11 +108,11 @@
     background: #2980b9;
 }
 
-/* Google Map Section Styling */
+
 .map-container {
     width: 100%;
     max-width: 1400px;
-    margin-top: 50px; /* Increased margin for spacing */
+    margin-top: 50px; 
     border-radius: 12px;
     overflow: hidden;
 }

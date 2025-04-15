@@ -1,7 +1,7 @@
 .doctorview-container {
   width: 100%;
   max-width: 1200px;
-  margin: 130px 450px; /* Center content with spacing from top and sides */
+  margin: 130px 450px; 
   padding: 20px 30px;
   box-sizing: border-box;
 }
@@ -15,16 +15,15 @@
   color: #2c3e50;
 }
 
-/* Doctor Grid */
 .dash-doctor-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 4 cards in a row */
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   justify-items: center;
   margin-bottom: 20px;
 }
 
-/* Doctor Card */
+
 .dash-doctor-card {
   background: #ffffff;
   border-radius: 16px;
@@ -90,7 +89,6 @@
 }
 
 
-/* Optional fade animation */
 @keyframes fadeIn {
   from {
     opacity: 0;

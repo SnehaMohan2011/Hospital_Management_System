@@ -1,4 +1,4 @@
-/* Reset and box-sizing */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,10 +12,10 @@ html, body {
   background-color: #f0f4ff;
   color: #333;
   overflow-x: hidden;
-  overflow-y: hidden; /* Add this if you don't want vertical scroll */
+  overflow-y: hidden; 
 }
 
-/* Remove default spacing in body */
+
 body {
   margin: 0;
   padding: 0;
@@ -23,7 +23,6 @@ body {
   flex-direction: column;
 }
 
-/* Overlay */
 .overlay {
   position: fixed;
   top: 0;

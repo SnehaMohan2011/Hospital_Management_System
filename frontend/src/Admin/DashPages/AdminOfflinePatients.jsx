@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom'; // Add useParams for accessing the patient ID
+import { useNavigate, useParams } from 'react-router-dom'; 
 import axios from 'axios';
 import './OfflinePatients.css';
 
 const AdminOfflinePatients = () => {
   const navigate = useNavigate();
-  const { patientId } = useParams(); // For editing specific patient (if ID exists)
+  const { patientId } = useParams(); 
 
   const [patients, setPatients] = useState([]);
   const [doctors, setDoctors] = useState([]);
@@ -22,7 +22,7 @@ const AdminOfflinePatients = () => {
 
   const fetchDoctors = async () => {
     try {
-      const res = await axios.get('http://localhost:5001/doctors');  // Assuming this API exists
+      const res = await axios.get('http://localhost:5001/doctors'); 
       setDoctors(res.data);
     } catch (err) {
       console.error('Error fetching doctors:', err);
@@ -44,7 +44,7 @@ const AdminOfflinePatients = () => {
         const res = await axios.get(`http://localhost:5001/patients/${patientId}`);
         setFormData({
           ...res.data,
-          visitDate: res.data.visitDate.split('T')[0],  // Ensure visitDate is formatted correctly
+          visitDate: res.data.visitDate.split('T')[0],  
         });
       } catch (err) {
         console.error('Error fetching patient details:', err);
@@ -55,7 +55,7 @@ const AdminOfflinePatients = () => {
   useEffect(() => {
     fetchDoctors();
     fetchPatients();
-    fetchPatientToEdit();  // Fetch patient data if in "edit mode"
+    fetchPatientToEdit();  
   }, [patientId]);
 
   const handleChange = (e) => {
@@ -66,15 +66,15 @@ const AdminOfflinePatients = () => {
     e.preventDefault();
 
     const url = patientId
-      ? `http://localhost:5001/patients/${patientId}` // URL for updating existing patient
-      : 'http://localhost:5001/offline-patients/add'; // URL for adding new patient
+      ? `http://localhost:5001/patients/${patientId}` 
+      : 'http://localhost:5001/offline-patients/add'; 
 
-    const method = patientId ? 'put' : 'post'; // Use PUT for updating, POST for adding
+    const method = patientId ? 'put' : 'post'; 
 
     try {
       const response = await axios[method](url, formData);
       if (response.status === 201 || response.status === 200) {
-        fetchPatients(); // Re-fetch patients after update/add
+        fetchPatients(); 
         setFormData({
           name: '',
           age: '',
@@ -86,7 +86,7 @@ const AdminOfflinePatients = () => {
           notes: '',
         });
         alert(patientId ? 'Patient updated successfully' : 'Patient added successfully');
-        navigate('/admin/offline-records'); // Redirect after success
+        navigate('/admin/offline-records'); 
       } else {
         console.error('Error saving patient data');
       }

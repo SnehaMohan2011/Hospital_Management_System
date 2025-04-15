@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // 👈 ADD THIS
+import { useNavigate } from 'react-router-dom'; 
 import './DashboardView.css';
 
 const DashboardView = () => {
@@ -10,7 +10,7 @@ const DashboardView = () => {
   const [totalPatients, setTotalPatients] = useState(0);
   const [appointmentStats, setAppointmentStats] = useState([]);
 
-  const navigate = useNavigate(); // 👈 INITIALIZE NAVIGATION
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchStats = async () => {

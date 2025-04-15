@@ -4,7 +4,7 @@ const Admin = require("../models/Admin");
 
 const router = express.Router();
 
-// 🔒 Simple Admin Login (no token)
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -51,7 +51,7 @@ router.post('/register', async (req, res) => {
 // 🧪 Simple Dashboard Route (no auth)
 router.get("/dashboard", async (req, res) => {
   try {
-    // Here you'd normally check session or a flag if admin is authenticated
+    
     res.status(200).json({
       message: "Welcome to the admin dashboard",
       info: "This is protected admin data"

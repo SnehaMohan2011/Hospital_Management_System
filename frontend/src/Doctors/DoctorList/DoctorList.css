@@ -40,17 +40,17 @@
   .doctor-info {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row; /* 👈 This will reverse the order */
+    flex-direction: row; 
     justify-content: space-between;
     gap: 3rem;
     margin-top: 40px;
   }
   
   
-  /* Left - Image & Name */
+
   .doctor-left {
     flex: 1;
-    max-width: 450px; /* Increased from 300px to 500px */
+    max-width: 450px; 
     text-align: center;
   }
   
@@ -60,7 +60,7 @@
   }
   .doctor-image {
     width: 100%;
-    height: auto; /* Ensures image maintains aspect ratio */
+    height: auto; 
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     object-fit: cover;
@@ -123,7 +123,6 @@
   }
 
 
-  /* Bio row inside the table */
 .details-table .bio-row td {
   background: #f9f9f9;
   padding: 20px;

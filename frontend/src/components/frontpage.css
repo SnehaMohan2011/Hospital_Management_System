@@ -1,5 +1,4 @@
 
-/* Content Section */
 .content {
   display: flex;
   align-items: center;
@@ -24,13 +23,13 @@
   font-weight: bold;
 }
 
-/* Smooth Fade-in Animation */
+
 @keyframes fadeInLeft {
   from { transform: translateX(-50px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* Right Section Image */
+
 .right-section img {
   height: 700px;
   width: 100%;
@@ -44,7 +43,7 @@
   transform: scale(1.05);
 }
 
-/* About Us Section */
+
 .about-section {
   display: flex;
   align-items: center;
@@ -102,8 +101,6 @@
   background-color: #4b1f85;
 }
 
-/* Core Values Section */
-/* Core Values Section */
 .core-values-section {
   text-align: center;
   padding: 60px 0;
@@ -119,7 +116,7 @@
 }
 
 .core-values-heading {
-  font-size: 52px; /* Increased for better prominence */
+  font-size: 52px;
   color: #222;
   margin-bottom: 10px;
 }

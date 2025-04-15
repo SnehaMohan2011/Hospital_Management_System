@@ -8,7 +8,7 @@ const Appointment = require("./models/AppointmentModel");
 const Booking = require('./models/Booking');
 
 const adminRoutes = require("./routes/adminRoutes");
-const appointmentRoutes = require("./routes/AppointmentRoutes");  // ✅ For viewing appointment records
+const appointmentRoutes = require("./routes/AppointmentRoutes"); 
 const bookingRoutes = require("./routes/BookingRoutes");  
 const doctorRoutes = require('./routes/doctorRoutes');    
 
@@ -16,7 +16,7 @@ const statusRoutes = require('./routes/status');
 
 const offlinePatientRoutes = require('./routes/OfflinePatientRoutes');
 
-// ✅ Main booking & availability
+
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// ✅ Load ENV Variables
+
 const {
   MONGO_URI,
   SMTP_HOST,
@@ -42,7 +42,6 @@ if (!MONGO_URI || !SMTP_HOST || !SMTP_USER || !SMTP_PASS || !RECEIVER_EMAIL) {
   process.exit(1);
 }
 
-// ✅ Connect to MongoDB
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -53,7 +52,7 @@ mongoose.connect(MONGO_URI, {
   process.exit(1);
 });
 
-// ✅ Setup SMTP for Email Notifications
+
 const transporter = nodemailer.createTransport({
   host: SMTP_HOST,
   port: 587,
@@ -73,7 +72,6 @@ transporter.verify((error) => {
   }
 });
 
-// ✅ Route: Send Appointment Confirmation Email
 app.post("/send-email", async (req, res) => {
   const { name, email, phone, gender, age, department, doctor, date, time } = req.body;
 
@@ -114,20 +112,16 @@ Patient Details:
 });
 
 // ✅ Route Mounting
-app.use("/admin", adminRoutes);               // Admin login/dashboard
-app.use("/appointments", appointmentRoutes);  // View appointment records
+app.use("/admin", adminRoutes);               
+app.use("/appointments", appointmentRoutes);  
 app.use("/bookings", bookingRoutes);    
 app.use('/doctors', doctorRoutes); 
 app.use('/offline-patients', offlinePatientRoutes);  
 
 
 app.use('/', statusRoutes);   
-// Bookings, availability, doctor filters
 
-// ❌ Removed /doctors because it's merged into /bookings
-// app.use("/doctors", doctorRoutes);         // No longer needed if logic moved
 
-// ✅ Start Server
 const SERVER_PORT = PORT || 5001;
 app.listen(SERVER_PORT, () => {
   console.log(`🚀 Server running on port ${SERVER_PORT}`);

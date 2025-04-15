@@ -44,28 +44,27 @@
     display: inline-block;
     padding-bottom: 8px;
   }
-  
- /* Doctors Grid */
+ 
 .doctors-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* increased min-width from 300px to 350px */
-  gap: 40px; /* increased spacing */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+  gap: 40px; 
   justify-content: center;
-  padding: 40px; /* add more padding for space */
-  max-width: 1600px; /* allow container to grow */
-  margin: 0 auto; /* center the container */
+  padding: 40px;
+  max-width: 1600px; 
+  margin: 0 auto; 
 }
 
 /* Doctor Card */
 .doctor-card {
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* slightly stronger shadow */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 850px; /* increased height from 750px to 850px */
+  height: 850px; 
 }
 
   
@@ -74,13 +73,13 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
   
-  /* Doctor Image */
+ 
   .doctor-card img {
-    margin-top: 0; /* remove top margin */
+    margin-top: 0; 
     width: 100%;
     height: 500px;
     object-fit: cover;
-    display: block; /* remove extra spacing */
+    display: block;
   }
   
   
@@ -88,7 +87,7 @@
     margin-top: 20px;
   }
   
-  /* Doctor Info */
+  
   .doctor-info {
     padding: 20px;
     flex-grow: 1;
@@ -109,13 +108,13 @@
     margin-bottom: 10px;
   }
   
-  /* Top Border Colors */
+
   .doctor-card.doctor-1 { border-top: 6px solid #FF7043; }
   .doctor-card.doctor-2 { border-top: 6px solid #9575CD; }
   .doctor-card.doctor-3 { border-top: 6px solid #4DB6AC; }
   .doctor-card.doctor-4 { border-top: 6px solid #757575; }
   
-  /* Responsive Design */
+
   @media (max-width: 1024px) {
     .doctors-container {
       grid-template-columns: repeat(2, 1fr);

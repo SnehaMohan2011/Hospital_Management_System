@@ -1,4 +1,4 @@
-/* DashboardView.css */
+
 
 .dash-dashboard-container {
   margin: 150px 400px;
@@ -21,7 +21,6 @@
   margin-bottom: 2rem;
 }
 
-/* Quick Stats Row */
 .quick-stats-row {
   display: flex;
   justify-content: space-between;
@@ -31,14 +30,14 @@
 }
 
 .stat-card {
-  flex: 1 1 300px; /* Increased base width */
+  flex: 1 1 300px; 
   background-color: #ffffff;
   border-radius: 16px;
-  padding: 2rem; /* Increased padding */
+  padding: 2rem; 
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: box-shadow 0.3s ease;
-  min-height: 180px; /* Ensures a taller card for balance */
+  min-height: 180px; 
 }
 
 .stat-card:hover {
@@ -58,7 +57,7 @@
 }
 
 
-/* Dashboard Cards */
+
 .dash-dashboard-card {
   background-color: #fff;
   border-radius: 12px;
@@ -87,7 +86,7 @@
 }
 
 
-/* Action Cards */
+
 .action-cards {
   display: flex;
   flex-wrap: wrap;

@@ -1,11 +1,11 @@
-/* Booking Section */
+
 .booking-container {
     background-color: #f8f9fa;
-    padding: 40px; /* Increased padding for a larger look */
+    padding: 40px; 
     border-radius: 15px;
     margin-top: 50px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow for enhanced visibility */
-    width: 1600px; /* Expanded to better fit the full screen */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+    width: 1600px;
     max-width: 1200px;
     height:750px;
     margin-left: auto;
@@ -16,19 +16,19 @@
     text-align: center;
     color: #6A0DAD;
     margin-bottom: 25px;
-    font-size: 40px; /* Larger heading */
+    font-size: 40px; 
 }
 
 .booking-form .input-group {
     display: flex;
-    gap: 30px; /* Increased spacing for clarity */
+    gap: 30px;
     margin-bottom:5%;
 }
 
 .booking-form input,
 .booking-form select {
     flex: 1;
-    padding: 15px; /* Larger padding for better readability */
+    padding: 15px; 
     border: 2px solid #6A0DAD;
     border-radius: 10px;
     outline: none;

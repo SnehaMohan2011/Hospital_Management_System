@@ -7,17 +7,17 @@ const patientSchema = new mongoose.Schema(
     phone: { type: String, required: true },
     gender: { type: String, required: true },
     age: { type: Number, required: true },
-    doctorId: { type: mongoose.Schema.Types.ObjectId, ref: 'Doctor' }, // Reference to doctor
+    doctorId: { type: mongoose.Schema.Types.ObjectId, ref: 'Doctor' }, 
     source: { 
       type: String, 
       required: true, 
-      enum: ['online', 'offline'], // To differentiate between online and offline booking
+      enum: ['online', 'offline'], 
     },
     status: { 
       type: String, 
-      default: 'pending', // Can be 'pending', 'confirmed', 'cancelled', etc.
+      default: 'pending', 
     },
-    notes: { type: String, default: '' },  // Notes field for patient record
+    notes: { type: String, default: '' },  
   },
   { timestamps: true }
 );

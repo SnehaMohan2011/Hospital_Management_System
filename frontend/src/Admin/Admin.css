@@ -1,4 +1,4 @@
-/* General Body Styling */
+
 body {
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* Login Page */
+
 .login-container {
   margin-top: 80px;
   display: flex;
@@ -195,7 +195,7 @@ input[type="password"]::-webkit-contacts-auto-fill-button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 400px; /* Consider reducing width for better responsiveness */
+  width: 400px; 
   height: 100vh;
   background-color: #ffffff;
   border-right: 1px solid #e0e0e0;

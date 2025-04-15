@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../DoctorList.css";
-import doctor3 from "../../../assets/doc17.jpeg"; // Replace with the correct path to Dr. Karan Bhatia's image
+import doctor3 from "../../../assets/doc17.jpeg"; 
 
 const DrKaranBhatia = () => {
   const navigate = useNavigate();

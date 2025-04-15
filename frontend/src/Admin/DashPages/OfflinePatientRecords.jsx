@@ -1,4 +1,4 @@
-// src/pages/Admin/OfflinePatientRecords.jsx
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './OfflinePatients.css';

@@ -4,7 +4,7 @@ import "./About.css";
 import "../index.css";
 import AboutImage from "../assets/hospital2.jpeg";
 import TeamImage from "../assets/h3.jpg";
-import LogoImage from "../assets/logo.png"; // Missing import added
+import LogoImage from "../assets/logo.png"; 
 
 const AboutUs = () => {
     const navigate = useNavigate();

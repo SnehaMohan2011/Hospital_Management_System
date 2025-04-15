@@ -1,10 +1,10 @@
-const Appointment = require('../models/AppointmentModel'); // or 'Booking' if using that model
+const Appointment = require('../models/AppointmentModel'); 
 
 const handleBooking = async (req, res) => {
   const { doctorId, patientName, patientEmail, patientPhone, appointmentDate } = req.body;
 
   try {
-    // Create a new appointment
+    
     const newAppointment = new Appointment({
       doctor: doctorId,
       patientName,
@@ -13,7 +13,7 @@ const handleBooking = async (req, res) => {
       appointmentDate
     });
 
-    // Save the appointment
+  
     await newAppointment.save();
 
     res.status(200).json({ message: 'Booking successful', booking: newAppointment });
