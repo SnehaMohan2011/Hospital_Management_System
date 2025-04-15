@@ -9,6 +9,7 @@ import Doctorpage from "./Doctors/doctors";
 import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
 
+
 import DrJohn from "./Doctors/DoctorList/Cardiology/DrJohn";
 import DrAshaReddy from "./Doctors/DoctorList/Cardiology/DrAshaReddy";
 import DrKaranBhatia from "./Doctors/DoctorList/Cardiology/DrKaranBhatia";
@@ -37,6 +38,8 @@ import DrTanyaJoseph from "./Doctors/DoctorList/GeneralHealth/DrTanyaJoseph";
 
 import AdminOfflinePatients from './Admin/DashPages/AdminOfflinePatients';
 import OfflinePatientRecords from './Admin/DashPages/OfflinePatientRecords';
+
+
 
 
 function App() {
@@ -84,8 +87,11 @@ function App() {
         <Route path="/admin/offline-patients" element={<AdminOfflinePatients />} />
         <Route path="/admin/offline-records" element={<OfflinePatientRecords />} />
 
+
+
         {/* ✅ 404 Not Found Page */}
         <Route path="*" element={<h2>Page Not Found</h2>} />
+      
       </Routes>
     </Router>
   );

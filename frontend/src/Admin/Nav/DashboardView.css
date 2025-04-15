@@ -12,7 +12,7 @@
 .dash-dashboard-container h2 {
   font-size: 3rem;
   color: #333;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
 }
 
 
@@ -117,7 +117,7 @@
 }
 
 .action-card p {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #555;
   margin-bottom: 1rem;
 }
@@ -128,7 +128,7 @@
   color: white;
   border: none;
   border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: 2rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }

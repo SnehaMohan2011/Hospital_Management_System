@@ -57,11 +57,44 @@ const AppointmentsView = () => {
     setEditingAppointment(null);
   };
 
-  const handleConfirmEdit = () => {
-    alert(`Confirmed edit for: ${editingAppointment.name}`);
-    // Placeholder for edit logic
-    setEditingAppointment(null);
+  const handleConfirmEdit = async () => {
+    try {
+      await axios.post('http://localhost:5001/appointments/send-confirmation', {
+        email: editingAppointment.email,
+        name: editingAppointment.name,
+        date: editingAppointment.date,
+        time: editingAppointment.time,
+        department: editingAppointment.department,
+        doctor: editingAppointment.doctor,
+      });
+  
+      alert(`Email sent to ${editingAppointment.email}`);
+      setEditingAppointment(null);
+    } catch (error) {
+      console.error('Error sending confirmation email:', error);
+      alert('Failed to send email.');
+    }
   };
+
+  const handleCancelAppointment = async () => {
+    try {
+      await axios.put(`http://localhost:5001/appointments/${editingAppointment._id}/cancel`);
+  
+      // Optional: update UI immediately
+      const updatedAppointments = appointments.map(appt =>
+        appt._id === editingAppointment._id ? { ...appt, status: 'cancelled' } : appt
+      );
+      setAppointments(updatedAppointments);
+      alert(`Appointment cancelled for ${editingAppointment.name}`);
+      setEditingAppointment(null);
+    } catch (error) {
+      console.error('Error cancelling appointment:', error);
+      alert('Failed to cancel appointment.');
+    }
+  };
+  
+  
+  
 
   const filters = ['All', 'Day', 'Month', 'History', 'Cancelled'];
 
@@ -161,7 +194,7 @@ const AppointmentsView = () => {
       <p><strong>Time:</strong> {editingAppointment.time}</p>
 
       <div className="edit-modal-actions">
-        <button className="edit-bar-btn cancel" onClick={handleCancelEdit}>
+        <button className="edit-bar-btn cancel" onClick={handleCancelAppointment}>
           Cancel
         </button>
         <button className="edit-bar-btn confirm" onClick={handleConfirmEdit}>

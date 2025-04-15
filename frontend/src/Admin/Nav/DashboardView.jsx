@@ -19,9 +19,9 @@ const DashboardView = () => {
           axios.get('http://localhost:5001/appointments/today'),
           axios.get('http://localhost:5001/appointments/total'),
           axios.get('http://localhost:5001/doctors/total'),
-          axios.get('http://localhost:5001/patients/total'),
           axios.get('http://localhost:5001/appointments/stats')
         ]);
+
 
         setAppointmentsToday(apptToday.data.count);
         setTotalAppointments(totalAppts.data.count);
@@ -54,24 +54,11 @@ const DashboardView = () => {
           <h5>Total Doctors</h5>
           <p>{totalDoctors}</p>
         </div>
-        <div className="stat-card">
-          <h5>Total Patients</h5>
-          <p>{totalPatients}</p>
-        </div>
+        
       </div>
 
       {/* Action Cards */}
       <div className="action-cards">
-        <div className="action-card">
-          <h4>Manage Appointments</h4>
-          <p>View, schedule, or cancel appointments.</p>
-          <button onClick={() => navigate('/admin/appointments')}>Go to Appointments</button>
-        </div>
-        <div className="action-card">
-          <h4>Manage Doctors</h4>
-          <p>View and edit doctor details.</p>
-          <button onClick={() => navigate('/admin/doctors')}>Go to Doctors</button>
-        </div>
         <div className="action-card">
           <h4>Manage Patients</h4>
           <p>View and edit patient information.</p>

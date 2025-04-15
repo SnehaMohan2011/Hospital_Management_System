@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './bookingpage.css';
 import "../index.css";
 import LogoImage from "../assets/logo.png";
-import DatePicker from "react-datepicker";
+
 
 
 const Bookingpage = () => {

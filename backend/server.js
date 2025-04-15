@@ -20,8 +20,11 @@ const offlinePatientRoutes = require('./routes/OfflinePatientRoutes');
 
 const app = express();
 
-// ✅ Middleware
-app.use(cors({ origin: ["http://localhost:5173", "http://localhost:3000"], credentials: true }));
+app.use(cors({
+  origin: 'http://localhost:5173', // React app URL
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}));
 app.use(express.json());
 
 // ✅ Load ENV Variables
@@ -116,6 +119,8 @@ app.use("/appointments", appointmentRoutes);  // View appointment records
 app.use("/bookings", bookingRoutes);    
 app.use('/doctors', doctorRoutes); 
 app.use('/offline-patients', offlinePatientRoutes);  
+
+
 app.use('/', statusRoutes);   
 // Bookings, availability, doctor filters
 
