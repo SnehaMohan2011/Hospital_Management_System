@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./About.css";
 import "../index.css";
 import AboutImage from "../assets/hospital2.jpeg";
-import TeamImage from "../assets/h3.jpg";
 import LogoImage from "../assets/logo.png"; 
 
 const AboutUs = () => {
@@ -70,14 +69,6 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            {/* Our Team Section */}
-            <section className="team-section">
-                <h2>Meet Our Expert Team</h2>
-                <p>Our team of experienced doctors, surgeons, and healthcare professionals work tirelessly to ensure the best patient outcomes.</p>
-                <div className="team-img">
-                    <img src={TeamImage} alt="Medical Team" />
-                </div>
-            </section>
 
             {/* Core Values */}
             <section className="core-values">

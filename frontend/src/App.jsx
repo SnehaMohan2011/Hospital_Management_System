@@ -1,15 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import FrontPage from "./components/frontpage";
 import AboutUs from "./components/AboutUs";
 import Facilities from "./components/Facilities";
 import ContactUs from "./components/ContactUs";
-import Bookingpage from "./booking/bookingpage"; 
-import Doctorpage from "./Doctors/doctors"; 
+import Bookingpage from "./booking/bookingpage";
+import Doctorpage from "./Doctors/doctors"; // ✅ Add this missing import
+
 import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
+import AdminOfflinePatients from './Admin/DashPages/AdminOfflinePatients';
+import OfflinePatientRecords from './Admin/DashPages/OfflinePatientRecords';
 
+// ✅ Doctor Imports
 import DrJohn from "./Doctors/DoctorList/Cardiology/DrJohn";
 import DrAshaReddy from "./Doctors/DoctorList/Cardiology/DrAshaReddy";
 import DrKaranBhatia from "./Doctors/DoctorList/Cardiology/DrKaranBhatia";
@@ -35,13 +41,6 @@ import DrRohitSharma from "./Doctors/DoctorList/GeneralHealth/DrRohitSharma";
 import DrSanjanaRao from "./Doctors/DoctorList/GeneralHealth/DrSanjanaRao";
 import DrTanyaJoseph from "./Doctors/DoctorList/GeneralHealth/DrTanyaJoseph";
 
-
-import AdminOfflinePatients from './Admin/DashPages/AdminOfflinePatients';
-import OfflinePatientRecords from './Admin/DashPages/OfflinePatientRecords';
-
-
-
-
 function App() {
   return (
     <Router>
@@ -51,47 +50,65 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/contact" element={<ContactUs />} />
-        
-        <Route path="/doctors" element={<Doctorpage />} /> {/* Fixed case */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                
-        {/*Cardiology Doctor Routing*/}
+        <Route path="/booking" element={<Bookingpage />} />
+        <Route path="/doctors" element={<Doctorpage />} />
+
+        {/* ✅ Doctor Detail Pages */}
         <Route path="/doctors/dr-john" element={<DrJohn />} />
         <Route path="/doctors/dr-asha-reddy" element={<DrAshaReddy />} />
         <Route path="/doctors/dr-karan-bhatia" element={<DrKaranBhatia />} />
         <Route path="/doctors/dr-priya-nair" element={<DrPriyaNair />} />
 
         <Route path="/doctors/dr-meera-shah" element={<DrMeeraShah />} />
-        <Route path="/doctors/dr-arvind-rao" element={<DrArvindRao/>} />
+        <Route path="/doctors/dr-arvind-rao" element={<DrArvindRao />} />
         <Route path="/doctors/dr-sneha-pillai" element={<DrSnehaPillai />} />
-        <Route path="/doctors/dr-nilesh-kumar" element={<DrNileshKumar/>} />
+        <Route path="/doctors/dr-nilesh-kumar" element={<DrNileshKumar />} />
 
         <Route path="/doctors/dr-kavya-sinha" element={<DrKavyaSinha />} />
-        <Route path="/doctors/dr-neha-verma" element={<DrNehaVerma/>} />
+        <Route path="/doctors/dr-neha-verma" element={<DrNehaVerma />} />
         <Route path="/doctors/dr-ramesh-iyer" element={<DrRameshIyer />} />
-        <Route path="/doctors/dr-vikram-solanki" element={<DrVikramSolanki/>} />
+        <Route path="/doctors/dr-vikram-solanki" element={<DrVikramSolanki />} />
 
         <Route path="/doctors/dr-anjali-suresh" element={<DrAnjaliSuresh />} />
-        <Route path="/doctors/dr-prakash-menon" element={<DrPrakashMenon/>} />
+        <Route path="/doctors/dr-prakash-menon" element={<DrPrakashMenon />} />
         <Route path="/doctors/dr-reema-das" element={<DrReemaDas />} />
-        <Route path="/doctors/dr-vinod-krishnan" element={<DrVinodKrishnan/>} />
+        <Route path="/doctors/dr-vinod-krishnan" element={<DrVinodKrishnan />} />
 
         <Route path="/doctors/dr-arjun-kapoor" element={<DrArjunKapoor />} />
-        <Route path="/doctors/dr-rohit-sharma" element={<DrRohitSharma/>} />
+        <Route path="/doctors/dr-rohit-sharma" element={<DrRohitSharma />} />
         <Route path="/doctors/dr-sanjana-rao" element={<DrSanjanaRao />} />
-        <Route path="/doctors/dr-tanya-joseph" element={<DrTanyaJoseph/>} />
+        <Route path="/doctors/dr-tanya-joseph" element={<DrTanyaJoseph />} />
 
-        <Route path="/booking" element={<Bookingpage />} /> 
+        {/* ✅ Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoutes>
+              <AdminDashboard />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/admin/offline-patients"
+          element={
+            <ProtectedRoutes>
+              <AdminOfflinePatients />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/admin/offline-records"
+          element={
+            <ProtectedRoutes>
+              <OfflinePatientRecords />
+            </ProtectedRoutes>
+          }
+        />
 
-        <Route path="/admin/offline-patients" element={<AdminOfflinePatients />} />
-        <Route path="/admin/offline-records" element={<OfflinePatientRecords />} />
-
-
-
-        {/* ✅ 404 Not Found Page */}
+        {/* ✅ 404 - Not Found */}
         <Route path="*" element={<h2>Page Not Found</h2>} />
-      
       </Routes>
     </Router>
   );

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './OfflinePatients.css';
@@ -33,7 +32,9 @@ const OfflinePatientRecords = () => {
               <p><span className="label">🎂 Age:</span> <span className="value">{p.age}</span></p>
               <p><span className="label">⚧ Gender:</span> <span className="value">{p.gender}</span></p>
               <p><span className="label">🏠 Address:</span> <span className="value">{p.address}</span></p>
-              <p><span className="label">📌 Status:</span> <span className="value">{p.source === 'offline' ? 'Offline' : 'Online'}</span></p>
+              <p><span className="label">🗓️ Visit Date:</span> <span className="value">{p.visitDate ? new Date(p.visitDate).toLocaleDateString() : 'N/A'}</span></p>
+              <p><span className="label">🩺 Doctor:</span> <span className="value">{p.doctorId ? `${p.doctorName} (${p.doctorDepartment})` : 'N/A'}</span></p>
+              <p><span className="label">📝 Notes:</span> <span className="value">{p.notes || 'No notes available'}</span></p>
               <p><span className="label">🗓️ Added On:</span> <span className="value">{p.createdAt ? new Date(p.createdAt).toLocaleString() : 'N/A'}</span></p>
             </div>
           ))}

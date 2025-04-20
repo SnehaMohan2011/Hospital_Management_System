@@ -3,7 +3,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const jwt = require("jsonwebtoken");
+const cookieParser = require('cookie-parser');
 
+
+const Admin = require("./models/Admin");
 const Appointment = require("./models/AppointmentModel");
 const Booking = require('./models/Booking');
 
@@ -11,33 +15,30 @@ const adminRoutes = require("./routes/adminRoutes");
 const appointmentRoutes = require("./routes/AppointmentRoutes"); 
 const bookingRoutes = require("./routes/BookingRoutes");  
 const doctorRoutes = require('./routes/doctorRoutes');    
-
 const statusRoutes = require('./routes/status');
-
 const offlinePatientRoutes = require('./routes/OfflinePatientRoutes');
-
 
 
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173', // React app URL
+  origin: 'http://localhost:5173',
   methods: 'GET,POST,PUT,DELETE',
   credentials: true
 }));
 app.use(express.json());
-
-
+app.use(cookieParser());
 const {
   MONGO_URI,
   SMTP_HOST,
   SMTP_USER,
   SMTP_PASS,
   RECEIVER_EMAIL,
+  JWT_SECRET,
   PORT,
 } = process.env;
 
-if (!MONGO_URI || !SMTP_HOST || !SMTP_USER || !SMTP_PASS || !RECEIVER_EMAIL) {
+if (!MONGO_URI || !SMTP_HOST || !SMTP_USER || !SMTP_PASS || !RECEIVER_EMAIL || !JWT_SECRET) {
   console.error("❌ Missing environment variables. Check your .env file!");
   process.exit(1);
 }
@@ -51,7 +52,6 @@ mongoose.connect(MONGO_URI, {
   console.error("❌ MongoDB Connection Error:", err);
   process.exit(1);
 });
-
 
 const transporter = nodemailer.createTransport({
   host: SMTP_HOST,
@@ -72,6 +72,8 @@ transporter.verify((error) => {
   }
 });
 
+
+// ✅ Send Email
 app.post("/send-email", async (req, res) => {
   const { name, email, phone, gender, age, department, doctor, date, time } = req.body;
 
@@ -87,19 +89,7 @@ app.post("/send-email", async (req, res) => {
       from: RECEIVER_EMAIL,
       to: RECEIVER_EMAIL,
       subject: "New Appointment Booking - Sneharika Hospitals",
-      text: `New appointment booked.
-
-Patient Details:
-- Name: ${name}
-- Email: ${email}
-- Phone: ${phone}
-- Gender: ${gender}
-- Age: ${age}
-- Department: ${department}
-- Doctor: ${doctor}
-- Date: ${date}
-- Time: ${time}
-`,
+      text: `New appointment booked.\n\nPatient Details:\n- Name: ${name}\n- Email: ${email}\n- Phone: ${phone}\n- Gender: ${gender}\n- Age: ${age}\n- Department: ${department}\n- Doctor: ${doctor}\n- Date: ${date}\n- Time: ${time}`,
     };
 
     await transporter.sendMail(mailOptions);
@@ -111,16 +101,13 @@ Patient Details:
   }
 });
 
-// ✅ Route Mounting
+// Mount routes
 app.use("/admin", adminRoutes);               
 app.use("/appointments", appointmentRoutes);  
 app.use("/bookings", bookingRoutes);    
 app.use('/doctors', doctorRoutes); 
 app.use('/offline-patients', offlinePatientRoutes);  
-
-
 app.use('/', statusRoutes);   
-
 
 const SERVER_PORT = PORT || 5001;
 app.listen(SERVER_PORT, () => {

@@ -53,47 +53,96 @@
 
   
 
-
-
-
-  
-
   .patient-records-section {
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   }
   
   .records-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
     text-align: center;
-    color: #2c3e50;
+    font-size: 3rem; /* Increased font size */
+    font-weight: 700; /* Bold title */
+    color: #333;
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
   }
   
+  /* No Records Found */
   .no-records {
-    font-size: 20px;
-    color: #888;
     text-align: center;
+    font-size: 1.6rem; /* Larger font size */
+    color: #b0bec5;
+    margin-top: 30px;
+  }
+  
+  /* Records Wrapper */
+  .records-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 40px; /* Increased gap between cards */
   }
   
   .record-card {
-    background-color: #fefefe;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    font-size: 18px;
+    background-color: #fff;
+    padding: 35px; /* Increased padding inside cards */
+    margin-bottom: 25px;
+    width: 48%; /* Larger width for the cards */
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    
   }
   
-  .label {
-    font-weight: bold;
+  .record-card:hover {
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Record Card Content */
+  .record-card p {
+    font-size: 1.4rem; /* Increased font size for text */
+    margin-bottom: 18px; /* Added extra space between lines */
     color: #333;
   }
   
-  .value {
-    color: #000;
+  .label {
+    font-weight: 700; /* Bolder labels */
+    color: #00796b;
+    margin-right: 15px; /* Increased spacing */
   }
   
+  .value {
+    font-weight: 400;
+    color: #555;
+  }
+  
+  /* Responsive Design for Small Screens */
+  @media (max-width: 768px) {
+    .patient-records-section {
+      width: 95%;
+    }
+  
+    .records-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .record-card {
+      width: 90%; /* Cards will take up more space on smaller screens */
+      padding: 30px; /* Increased padding for readability on small screens */
+    }
+  
+    .records-title {
+      font-size: 2.5rem; /* Adjusted font size for smaller screens */
+    }
+  
+    .no-records {
+      font-size: 1.5rem; /* Adjusted font size for smaller screens */
+    }
+  }

@@ -1,33 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import './DashboardView.css';
 
 const DashboardView = () => {
   const [appointmentsToday, setAppointmentsToday] = useState(0);
   const [totalAppointments, setTotalAppointments] = useState(0);
   const [totalDoctors, setTotalDoctors] = useState(0);
-  const [totalPatients, setTotalPatients] = useState(0);
-  const [appointmentStats, setAppointmentStats] = useState([]);
+  const [totalPatients, setTotalPatients] = useState(0); // Added state for patients
+  const [appointmentStats, setAppointmentStats] = useState({}); // For additional stats if needed
 
   const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const [apptToday, totalAppts, doctors, patients, stats] = await Promise.all([
+        const [apptToday, totalAppts, doctors, patients] = await Promise.all([
           axios.get('http://localhost:5001/appointments/today'),
           axios.get('http://localhost:5001/appointments/total'),
           axios.get('http://localhost:5001/doctors/total'),
-          axios.get('http://localhost:5001/appointments/stats')
+          axios.get('http://localhost:5001/patients/total'), // Assuming there's an endpoint for patients
         ]);
 
-
+        // Setting the data to state
         setAppointmentsToday(apptToday.data.count);
         setTotalAppointments(totalAppts.data.count);
         setTotalDoctors(doctors.data.count);
-        setTotalPatients(patients.data.count);
-        setAppointmentStats(stats.data);
+        setTotalPatients(patients.data.count);  // Set patient count
       } catch (error) {
         console.error('Error fetching dashboard data:', error);
       }

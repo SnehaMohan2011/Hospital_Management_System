@@ -1,17 +1,10 @@
-// models/Admin.js
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const mongoose = require('mongoose');
 
-const adminSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
+const AdminSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
   password: { type: String, required: true },
+  role: { type: String, default: 'admin' }
 });
 
-adminSchema.pre("save", async function (next) {
-  if (this.isModified("password")) {
-    this.password = await bcrypt.hash(this.password, 10);
-  }
-  next();
-});
 
-module.exports = mongoose.model("Admin", adminSchema);
+module.exports = mongoose.model('Admin', AdminSchema);
